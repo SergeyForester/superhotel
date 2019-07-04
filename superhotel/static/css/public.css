@@ -1,1 +1,145 @@
-﻿#facebook_setup h2,#facebook_setup h3{color:#646D74}a,a.details,a.photos,.room .photo a{color:#646D74}a:visited,a.details:visited,a.photos:visited,.room .photo a:visited{color:#646D74}a:focus,a.details:focus,a.photos:focus,.room .photo a:focus{color:#646D74}a:hover,a.details:hover,a.photos:hover,.room .photo a:hover{color:#646D74}a:active,a.details:active,a.photos:active,.room .photo a:active{color:#646D74}.overview h2,.terms_conditions h2,.confirmation h4,#confirm_dialog h3,#confirm_dialog h4{color:#646D74}.ui-state-active,.ui-widget-content .ui-state-active,.reservation h3 em,.ui-datepicker .ui-datepicker-title{background:#646D74}.photo_overlay .hero img:hover,.photo_overlay .thumbs img:hover{border:1px solid #646D74}a.book_now,a.book_now:hover,a.book,a.book:hover,a.book:visited,a.book_room,a.book_room:hover,a.room_enquiry,a.room_enquiry:hover,a.enquire,a.enquire:hover,a.next,a.next:hover,a.next:visited{background-color:#646D74}table.rates tfoot th,.reservation .pricing table tfoot th,dl.rating,.reservation .header dl.rating,input.check_availability{background-color:#646D74}body{background:#A1C201}body.widget{background:none}input.check_availability,button.check_availability{display:inline-block;padding:3px 10px;border:1px solid #586066;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;font-size:11px;font-family:arial, helvetica, sans-serif;font-weight:bold;color:#fff;text-decoration:none;text-align:center;text-shadow:1px 1px 0 #586066;background-color:#646D74;background-image:-webkit-gradient(linear, left top, left bottom, from(#646D74), to(#8a939a));background-image:-webkit-linear-gradient(top, #646D74, #8a939a);background-image:-moz-linear-gradient(top, #646D74, #8a939a);background-image:-ms-linear-gradient(top, #646D74, #8a939a);background-image:-o-linear-gradient(top, #646D74, #8a939a);background-image:linear-gradient(to bottom, #646d74,#8a939a);cursor:pointer;padding:8px 10px}input.check_availability:hover,button.check_availability:hover{text-shadow:2px 2px 0 #586066}a.book.dynamic,a.book_now.dynamic,a.book_room.dynamic,a.room_enquiry.dynamic,a.room_enquire.dynamic,a.enquire.dynamic,a.next.dynamic{display:inline-block;padding:3px 10px;border:1px solid #586066;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;font-size:11px;font-family:arial, helvetica, sans-serif;font-weight:bold;color:#FFFFFF;text-decoration:none;text-align:center;text-shadow:1px 1px 0 #586066;background-color:#646D74;background-image:-webkit-gradient(linear, left bottom, left top, from(#646D74), to(#8a939a));background-image:-webkit-linear-gradient(bottom, #646D74, #8a939a);background-image:-moz-linear-gradient(bottom, #646D74, #8a939a);background-image:-ms-linear-gradient(bottom, #646D74, #8a939a);background-image:-o-linear-gradient(bottom, #646D74, #8a939a);background-image:linear-gradient(to top, #646d74,#8a939a)}a.book.dynamic:hover,a.book_now.dynamic:hover,a.book_room.dynamic:hover,a.room_enquiry.dynamic:hover,a.room_enquire.dynamic:hover,a.enquire.dynamic:hover,a.next.dynamic:hover{text-shadow:2px 2px 0 #586066}
+﻿#facebook_setup h2,#facebook_setup h3 {
+    color: #646D74
+}
+
+a,a.details,a.photos,.room .photo a {
+    color: #646D74
+}
+
+a:visited,a.details:visited,a.photos:visited,.room .photo a:visited {
+    color: #646D74
+}
+
+a:focus,a.details:focus,a.photos:focus,.room .photo a:focus {
+    color: #646D74
+}
+
+a:hover,a.details:hover,a.photos:hover,.room .photo a:hover {
+    color: #646D74
+}
+
+a:active,a.details:active,a.photos:active,.room .photo a:active {
+    color: #646D74
+}
+
+.overview h2,.terms_conditions h2,.confirmation h4,#confirm_dialog h3,#confirm_dialog h4 {
+    color: #646D74
+}
+
+.ui-state-active,.ui-widget-content .ui-state-active,.reservation h3 em,.ui-datepicker .ui-datepicker-title {
+    background: #646D74
+}
+
+.photo_overlay .hero img:hover,.photo_overlay .thumbs img:hover {
+    border: 1px solid #646D74
+}
+
+a.book_now,a.book_now:hover,a.book,a.book:hover,a.book:visited,a.book_room,a.book_room:hover,a.room_enquiry,a.room_enquiry:hover,a.enquire,a.enquire:hover,a.next,a.next:hover,a.next:visited {
+    background-color: #646D74
+}
+
+table.rates tfoot th,.reservation .pricing table tfoot th,dl.rating,.reservation .header dl.rating,input.check_availability {
+    background-color: #646D74
+}
+
+body {
+    background: #A1C201
+}
+
+body.widget {
+    background: none
+}
+
+input.check_availability,button.check_availability {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #586066;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #586066;
+    background-color: #646D74;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#646D74), to(#8a939a));
+    background-image: -webkit-linear-gradient(top, #646D74, #8a939a);
+    background-image: -moz-linear-gradient(top, #646D74, #8a939a);
+    background-image: -ms-linear-gradient(top, #646D74, #8a939a);
+    background-image: -o-linear-gradient(top, #646D74, #8a939a);
+    background-image: linear-gradient(to bottom, #646d74,#8a939a);
+    cursor: pointer;
+    padding: 8px 10px
+}
+
+input.check_availability:hover,button.check_availability:hover {
+    text-shadow: 2px 2px 0 #586066
+}
+
+a.book.dynamic,a.book_now.dynamic,a.book_room.dynamic,a.room_enquiry.dynamic,a.room_enquire.dynamic,a.enquire.dynamic,a.next.dynamic {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #586066;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 0 #586066;
+    background-color: #646D74;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#646D74), to(#8a939a));
+    background-image: -webkit-linear-gradient(bottom, #646D74, #8a939a);
+    background-image: -moz-linear-gradient(bottom, #646D74, #8a939a);
+    background-image: -ms-linear-gradient(bottom, #646D74, #8a939a);
+    background-image: -o-linear-gradient(bottom, #646D74, #8a939a);
+    background-image: linear-gradient(to top, #646d74,#8a939a)
+}
+
+a.book.dynamic:hover,a.book_now.dynamic:hover,a.book_room.dynamic:hover,a.room_enquiry.dynamic:hover,a.room_enquire.dynamic:hover,a.enquire.dynamic:hover,a.next.dynamic:hover {
+    text-shadow: 2px 2px 0 #586066
+}
+
+input{
+    padding: .5em .6em;
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: 160px;
+    border-radius: 4px;
+
+}
+
+input:hover{
+    background-color: #988cb740;
+
+}
+input:active{
+    background-color: #686cd68c;
+  
+}
+
+textarea {
+    border-radius: 10px 10px 10px 10px;
+    background-color: transparent;
+    border: 0px solid;
+    height: 55px;
+    width: 180px;
+}
+
+.submit-btn {
+    background:#dddddd;
+}
+
+
+
+.features input{
+    margin:10px;
+
+}
