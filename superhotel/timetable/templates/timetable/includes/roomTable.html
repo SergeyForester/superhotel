@@ -1,63 +1,93 @@
+<table>
+    <tr>
+        <th class='date_nav top_left_corner'>
+            <ul class='back'>
+                <li>
+                    <a class="week" id="back_1_week" data-date="23 Jun 2019"
+                       href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
+                            class='fa fa-backward'></i>
+                        Week
+                    </a></li>
+                <li>
+                    <a class="day" id="back_1_day" data-date="23 Jun 2019"
+                       href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
+                            class='fa fa-caret-left'></i>
+                        Day
+                    </a></li>
+            </ul>
+
+        </th>
+        <th class='date_nav date_from_nav'>
+            <div class='date_from'>
+                <label for="start_date_display">Date from</label>
+                <input type="text" name="start_date_display" id="start_date_display"
+                       value="23 Jun 2019" class="calendar"/>
+                <input type="hidden" name="start_date" id="start_date" value="2019-06-23"/>
+            </div>
+        </th>
+        <th class='date_nav top_right_corner'>
+            <ul class='forward'>
+                <li>
+                    <a class="day" id="forward_1_day" data-date="24 Jun 2019"
+                       href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-24">Day
+                        <i class='fa fa-caret-right'></i>
+                    </a></li>
+                <li>
+                    <a class="week" id="forward_1_week" data-date="30 Jun 2019">
+                    </a></li>
+            </ul>
+
+        </th>
+    </tr>
+</table>
+</th>
+</tr>
+
+</thead>
+</table>
+<table cellspacing='0' class='rates' id='rates'>
+    <thead>
+    <tr>
+        <th class='note' colspan='2'>Prices will be charged in United States Dollars</th>
+        <th class='rack_rate'></th>
+        {% for day in days %}
+        <th class='date end weekend'>
+            <!--<span class='day_name'>{{day.day}}</span>-->
+            <span class='day'>{{day.day}}</span>
+            <span class='month'>{{day.month}}</span>
+            <span class='year'>{{day.year}}</span>
+        </th>
+        {% endfor %}
+
+    </tr>
+    </thead>
+</table>
+</thead>
+</table>
 <table cellspacing='0' class='rates' id='rates'>
     <tbody>
+    {% for room in roomTable %}
     <tr>
         <!-- Здесь я думаю использовать formset -->
         <!-- TODO здесь возникли сложности  -->
         <td class='room_name'>
-            <p>Habitación Economy Standard </p>
-            <a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Photos</a>
-            <a class="details" href="#room_107199">Details</a>
+            <p>{{room.name}}</p>
+            <a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Фото</a>
+            <a class="details" href="#room_107199">Детали</a>
         </td>
         <td class='book_now'>
             <a class="book dynamic en"
                href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-22"><span
                     class='fa fa-chevron-circle-right'></span>
-                Book
+                Бронь
             </a></td>
         <td class='rack_rate'>$</td>
+
         <td class='rate start weekend' data-id='124780430'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-22">30</a>
-        </td>
-        <td class='end rate weekend' data-id='124780431'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-23">30</a>
-        </td>
-        <td class='rate' data-id='124780432'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-24">30</a>
-        </td>
-        <td class='rate' data-id='124780433'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-25">30</a>
-        </td>
-        <td class='rate' data-id='124780434'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-26">30</a>
-        </td>
-        <td class='rate' data-id='124780435'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-27">30</a>
-        </td>
-        <td class='rate' data-id='124780436'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-28">30</a>
-        </td>
-        <td class='rate start weekend' data-id='124780437'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-29">30</a>
-        </td>
-        <td class='end rate weekend' data-id='124780438'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-30">30</a>
-        </td>
-        <td class='rate' data-id='124780439'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-07-01">30</a>
-        </td>
-        <td class='rate' data-id='124780440'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-07-02">30</a>
-        </td>
-        <td class='rate' data-id='124780441'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-07-03">30</a>
-        </td>
-        <td class='rate' data-id='124780442'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-07-04">30</a>
-        </td>
-        <td class='rate' data-id='124780443'>
-            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-07-05">30</a>
+            <a href="/reservations/resielbalatadirect/107199?locale=en&amp;start_date=2019-06-22">{{room.price}}</a>
         </td>
     </tr>
+    {% endfor %}
     </tbody>
     <tfoot>
     <tr>

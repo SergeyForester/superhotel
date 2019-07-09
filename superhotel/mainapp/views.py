@@ -1,10 +1,16 @@
 from django.shortcuts import render
+from timetable.models import Room
+import datetime
+from django.utils import timezone
 from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from mainapp.forms import HeaderPhotoForm, NameOfHotelForm, StarsForm, NameOfHotelInfoForm
 from mainapp.forms import TelephoneNumberForm, AddressForm, LocalityForm, RegionForm, PostalCodeForm
 from mainapp.forms import MapLinkForm, UploadPhotoInfoForm, LongDescriptionOfHotel, FeatureForm, TermsAndConditionsForm
 from mainapp.forms import FirstStepDirections, RoomSelectionText, RoomBookingInstructions, SecondStepDirections
 # Create your views here.
+def mainPage(request):
+    return render(request, 'mainapp/main.html')
+
 def dataFromInputBooking(request):
     headerPhoto = HeaderPhotoForm(request.POST)
     nameOfHotel_form = NameOfHotelForm(request.POST)
@@ -21,7 +27,20 @@ def dataFromInputBooking(request):
     featureForm = FeatureForm(request.POST)
     termsAndConditions = TermsAndConditionsForm(request.POST)
 
-    
+    roomTable = Room.objects.all()
+    print(roomTable)
+
+    # now = datetime.datetime.now()
+    # datetime.today()
+    # datetime.date.today() + datetime.timedelta(days=1)
+    days = []
+    for dayR in range(7):
+        day = datetime.date.today() + datetime.timedelta(days=dayR)
+        print(day)
+        days.append(day)
+
+    print(days[-1].strftime("%A"))
+    print(days)
 
     context = {'headerPhoto':headerPhoto, 'nameOfHotel_form':nameOfHotel_form,
                'starsForm':starsForm, 'nameOfHotelInfo':nameOfHotelInfo,
@@ -29,7 +48,7 @@ def dataFromInputBooking(request):
                'localityForm':localityForm, 'regionForm':regionForm,
                'postal_codeForm':postal_codeForm, 'mapLinkForm':mapLinkForm,
                'uploadPhotoInfoForm':uploadPhotoInfoForm, 'longDescriptionOfHotel':longDescriptionOfHotel,
-               'featureForm':featureForm, 'termsAndConditions':termsAndConditions}
+               'featureForm':featureForm, 'termsAndConditions':termsAndConditions, 'roomTable':roomTable, 'days':days}
 
     return render(request, 'mainapp/booking.html', context)
 

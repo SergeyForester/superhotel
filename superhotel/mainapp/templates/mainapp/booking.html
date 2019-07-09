@@ -198,7 +198,9 @@
                                 <option value="ZMW">Zambia Kwacha (ZMW)</option>
                             </select>
                         </th>
-                        <th class='date_navigation' colspan='14'>
+                           <a href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-30">Week
+                                                    <i class='fa fa-forward'></i>
+                                              <th class='date_navigation' colspan='14'>
                             <table>
                                 <tr>
                                     <th class='date_nav top_left_corner'>
@@ -234,10 +236,8 @@
                                                     <i class='fa fa-caret-right'></i>
                                                 </a></li>
                                             <li>
-                                                <a class="week" id="forward_1_week" data-date="30 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-30">Week
-                                                    <i class='fa fa-forward'></i>
-                                                </a></li>
+                                                <a class="week" id="forward_1_week" data-date="30 Jun 2019">
+                                                  </a></li>
                                         </ul>
 
                                     </th>
@@ -246,8 +246,6 @@
                         </th>
                     </tr>
 
-
-
                 </thead>
             </table>
             <table cellspacing='0' class='rates' id='rates'>
@@ -255,98 +253,21 @@
                 <tr>
                     <th class='note' colspan='2'>Prices will be charged in United States Dollars</th>
                     <th class='rack_rate'></th>
+                    {% for day in days %}
                     <th class='date end weekend'>
-                        <span class='day_name'>Sun</span>
-                        <span class='day'>23</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
+                        <!--<span class='day_name'>{{day.day}}</span>-->
+                        <span class='day'>{{day.day}}</span>
+                        <span class='month'>{{day.month}}</span>
+                        <span class='year'>{{day.year}}</span>
                     </th>
-                    <th class='date'>
-                        <span class='day_name'>Mon</span>
-                        <span class='day'>24</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Tue</span>
-                        <span class='day'>25</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Wed</span>
-                        <span class='day'>26</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Thu</span>
-                        <span class='day'>27</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Fri</span>
-                        <span class='day'>28</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date start weekend'>
-                        <span class='day_name'>Sat</span>
-                        <span class='day'>29</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date end weekend'>
-                        <span class='day_name'>Sun</span>
-                        <span class='day'>30</span>
-                        <span class='month'>Jun</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Mon</span>
-                        <span class='day'>01</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Tue</span>
-                        <span class='day'>02</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Wed</span>
-                        <span class='day'>03</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Thu</span>
-                        <span class='day'>04</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date'>
-                        <span class='day_name'>Fri</span>
-                        <span class='day'>05</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
-                    <th class='date start weekend'>
-                        <span class='day_name'>Sat</span>
-                        <span class='day'>06</span>
-                        <span class='month'>Jul</span>
-                        <span class='year'>2019</span>
-                    </th>
+                    {% endfor %}
 
                 </tr>
                 </thead>
             </table>
-            </th>
-            </tr>
             </thead>
             </table>
+
             {% include 'timetable/includes/roomTable.html' %}
             <script id='tool_tip_template' type='text/x-jquery-tmpl'></script>
         </div>
@@ -590,6 +511,7 @@
                         {% endfor %}
                         <br>
                         <input class="submit-btn" type="submit" value="Следующий шаг">
+                        <a href="{% url 'main:dataFromInputBookARoom'  %}">На следующую страницу</a>
                     </form>
                     </p>
                 </div>
