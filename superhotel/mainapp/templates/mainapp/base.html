@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>Title</title>
+    {% endblock title %}
+    {% block css %}
+
+        <link rel="stylesheet" href="{% static 'css/bgstyle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
+        <link rel="stylesheet" href="{% static 'css/style-slider.css' %}">
+
+    {% endblock css %}
+    {% block js %}
+        <script src="{% static 'js/bgAnimation.js' %}"></script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="{% static 'js/inputText.js' %}"></script>
+
+
+
+
+
+    {% endblock js %}
+</head>
+<body>
+{% block content %}
+
+
+    <div class="main_wrapper">
+        <div class="anim_fix">
+            {% include 'mainapp/includes/inc_bg_animation.html' %}
+        </div>
+
+        {% block language %}
+            <div class="header">
+            <div class="lang_container">
+                <div class="language_list">
+                    <a href="#" class="a_lang">RU</a>
+                    <a href="#" class="a_lang">EN</a>
+                </div>
+            </div>
+        {% endblock language %}
+        {% block name_hotel %}
+
+            {% csrf_token %}
+            <div class="h1_div"><h1 id="item1_name" class="ForEdit" contenteditable="true">El Balata</h1></div>
+            <div class="h3_div"><h3 id="item1_desc" class="ForEdit" contenteditable="true">Eco Boutique Hotel</h3></div>
+
+        {% endblock name_hotel %}
+        {% block menu %}
+            {% include 'mainapp/includes/inc_menu.html' %}
+
+
+
+        {% endblock menu %}
+
+        {% block slider %}
+
+            {% include 'mainapp/includes/inc_slider.html' %}
+
+
+            </div>
+        {% endblock slider %}
+        {% block footer %}  {% endblock footer %}
+    </div>
+
+
+{% endblock content %}
+
+</body>
+</html>

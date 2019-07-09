@@ -8,8 +8,31 @@ from mainapp.forms import TelephoneNumberForm, AddressForm, LocalityForm, Region
 from mainapp.forms import MapLinkForm, UploadPhotoInfoForm, LongDescriptionOfHotel, FeatureForm, TermsAndConditionsForm
 from mainapp.forms import FirstStepDirections, RoomSelectionText, RoomBookingInstructions, SecondStepDirections
 # Create your views here.
+
+from django.shortcuts import render, HttpResponse
+from mainapp.models import constructNameHotel
+from django.http import JsonResponse
+
 def mainPage(request):
-    return render(request, 'mainapp/main.html')
+    return render(request, 'mainapp/index.html')
+
+
+def saveColumns(request):
+    if request.is_ajax():
+
+        tempSave = request.GET
+        id = tempSave['id']
+        content = tempSave['content']
+        newConstruct = constructNameHotel(tag_name=id, tag_text=content)
+        if constructNameHotel.objects.filter(tag_name=id).first().tag_name == id:
+            newConstruct = constructNameHotel.objects.get(tag_name=id)
+            newConstruct.tag_text = content
+            newConstruct.save()
+        else:
+            newConstruct.save()
+        abc = request.is_ajax()
+        return JsonResponse({'result': content})
+
 
 def dataFromInputBooking(request):
     headerPhoto = HeaderPhotoForm(request.POST)
