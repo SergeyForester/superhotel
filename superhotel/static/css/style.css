@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.lang_container {
+    z-index: 21;
+
+    opacity: 0.3;
+}
+.language_list {
+    width: 160px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: black;
+}
+.a_lang {
+    font-weight: bold;
+    font-size: 20px;
+}
+.a_lang:hover {
+    color: white;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+}
+.h1_div {
+    font-style: italic;
+    font-size: 130px;
+    font-family: "BrushItalic";
+    opacity: 0.5;
+    padding-left: 15%;
+    white-space: nowrap;
+    z-index: 21;
+}
+.h3_div {
+    font-style: italic;
+    font-size: 40px;
+    font-family: "BrushItalic";
+    opacity: 0.5;
+    padding-left: 35%;
+    z-index: 21;
+}
+
+.menu {
+    text-align: center;
+    padding-top: 100px;
+    font-size: 80px;
+    z-index: 21;
+    font-family: "BrushItalic";
+}
+
+.link_menu {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: black;
+    opacity: 0.4;
+}
+.link_menu:hover {
+    opacity: 1;
+}
+
+.testclass {
+    opacity: 0.5;
+    background-color: green;
+
+
+    z-index: 20;
+}
+.anim_fix {
+
+}
+.main_wrapper {
+    height: 100%;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+.line_slider {
+    margin-top: 660px;
+}
+@font-face {
+font-family: "BrushItalic";
+src: url("../fonts/BRUSHSCI.TTF") format("truetype");
+font-style: normal;
+font-weight: normal;
+ }
