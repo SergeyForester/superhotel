@@ -27,6 +27,7 @@ class TelephoneNumberForm(forms.Form):
 class AddressForm(forms.Form):
     address = forms.CharField(max_length=100)
 
+
 class LocalityForm(forms.Form):
     locality = forms.CharField(max_length=200)
 

@@ -12,8 +12,8 @@ class Room(models.Model):
     kids = models.PositiveIntegerField(verbose_name='Кол-во детей')
     infants = models.PositiveIntegerField(verbose_name='Кол-во младенцев')
     extraPerson = models.PositiveIntegerField(verbose_name='Цена за доп. человека')
-    image1 = models.ImageField(upload_to='rooms_img/%Y/%m/%d', blank=True)
-    image2 = models.ImageField(upload_to='rooms_img/%Y/%m/%d', blank=True)
+    image1 = models.ImageField(upload_to='media/rooms_img/%Y/%m/%d', blank=True)
+    image2 = models.ImageField(upload_to='media/rooms_img/%Y/%m/%d', blank=True)
     description = models.TextField(verbose_name='описание номера', blank=True)
 
     class Meta:
