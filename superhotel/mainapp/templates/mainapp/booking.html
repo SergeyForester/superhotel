@@ -26,10 +26,11 @@
             {% for field in headerPhoto %}
             {{ field }}
             {% endfor %}
+            <div id="headerPhoto"></div>
 
-        <img
-                src="https://photos-app-prod.littlehotelier.com/attachments/properties/banners/9012/standard/20180710_141615.jpg?1531354274"
-                alt="20180710 141615"/>
+        <!--<img-->
+                <!--src="https://photos-app-prod.littlehotelier.com/attachments/properties/banners/9012/standard/20180710_141615.jpg?1531354274"-->
+                <!--alt="20180710 141615"/>-->
 
 
     </div>
@@ -198,7 +199,7 @@
                                 <option value="ZMW">Zambia Kwacha (ZMW)</option>
                             </select>
                         </th>
-                           <a href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-30">Week
+                           <a href="#">Week
                                                     <i class='fa fa-forward'></i>
                                               <th class='date_navigation' colspan='14'>
                             <table>
@@ -207,13 +208,13 @@
                                         <ul class='back'>
                                             <li>
                                                 <a class="week" id="back_1_week" data-date="23 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
+                                                   href="#"><i
                                                         class='fa fa-backward'></i>
                                                     Week
                                                 </a></li>
                                             <li>
                                                 <a class="day" id="back_1_day" data-date="23 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
+                                                   href="#"><i
                                                         class='fa fa-caret-left'></i>
                                                     Day
                                                 </a></li>
@@ -232,7 +233,7 @@
                                         <ul class='forward'>
                                             <li>
                                                 <a class="day" id="forward_1_day" data-date="24 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-24">Day
+                                                   href="#">Day
                                                     <i class='fa fa-caret-right'></i>
                                                 </a></li>
                                             <li>
@@ -269,7 +270,6 @@
             </table>
 
             {% include 'timetable/includes/roomTable.html' %}
-            <script id='tool_tip_template' type='text/x-jquery-tmpl'></script>
         </div>
         <div class='property'>
             <h2>Информация об отеле</h2>
@@ -534,5 +534,7 @@
     </div>
     <div class='tip' id='extra_tooltip'></div>
     <div class='tip' id='room_tooltip'></div>
+    <script src="{% static 'js/headerPhotoForm.js' %}"></script>
+</div>
 </body>
 </html>

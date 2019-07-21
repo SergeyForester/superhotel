@@ -1,12 +1,17 @@
 from django import forms
 from django_starfield import Stars
+
+
 # forms for booking.html
 
 class HeaderPhotoForm(forms.Form):
-    photos = forms.FileField()
+    photos = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'fileForm'}))
+
 
 class NameOfHotelForm(forms.Form):
-    name_of_hotel = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'El Balata, например'}))
+    name_of_hotel = forms.CharField(max_length=100,
+                                    widget=forms.TextInput(attrs={'placeholder': 'El Balata, например'}))
+
 
 class StarsForm(forms.Form):
     STARS_CHOICES = (
@@ -18,11 +23,15 @@ class StarsForm(forms.Form):
     )
     stars = forms.ChoiceField(choices=STARS_CHOICES, label="", initial='', required=True)
 
+
 class NameOfHotelInfoForm(forms.Form):
-    info = forms.CharField(max_length=6000, widget=forms.Textarea(attrs={'placeholder': 'Добавьте небольшое описание','cols': 45, 'rows': 10}))
+    info = forms.CharField(max_length=6000, widget=forms.Textarea(
+        attrs={'placeholder': 'Добавьте небольшое описание', 'cols': 45, 'rows': 10}))
+
 
 class TelephoneNumberForm(forms.Form):
     number = forms.IntegerField(required=True)
+
 
 class AddressForm(forms.Form):
     address = forms.CharField(max_length=100)
@@ -31,14 +40,19 @@ class AddressForm(forms.Form):
 class LocalityForm(forms.Form):
     locality = forms.CharField(max_length=200)
 
+
 class RegionForm(forms.Form):
     region = forms.CharField(max_length=200)
+
 
 class PostalCodeForm(forms.Form):
     postalCode = forms.IntegerField(required=True)
 
+
 class MapLinkForm(forms.Form):
-    link = forms.URLField()
+    mapCode = forms.CharField(widget=forms.Textarea(
+        attrs={'placeholder': 'Всавьте код карты', 'cols': 55, 'rows': 20}))
+
 
 class UploadPhotoInfoForm(forms.Form):
     # for x in range(6):
@@ -50,8 +64,11 @@ class UploadPhotoInfoForm(forms.Form):
     photo5 = forms.FileField()
     photo6 = forms.FileField()
 
+
 class LongDescriptionOfHotel(forms.Form):
-    longdescr = forms.CharField(max_length=10000, widget=forms.Textarea(attrs={'placeholder': 'Добавьте большое описание','cols': 45, 'rows': 10}))
+    longdescr = forms.CharField(max_length=10000, widget=forms.Textarea(
+        attrs={'placeholder': 'Добавьте большое описание', 'cols': 45, 'rows': 10}))
+
 
 class FeatureForm(forms.Form):
     feature1 = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Добавьте преимущество'}))
@@ -63,23 +80,25 @@ class FeatureForm(forms.Form):
     feature7 = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Добавьте преимущество'}))
     feature8 = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Добавьте преимущество'}))
 
+
 class TermsAndConditionsForm(forms.Form):
     terms = forms.CharField(max_length=3000)
+
 
 # forms for book_a_room.html
 
 class FirstStepDirections(forms.Form):
     directions = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Указания'}))
 
+
 class RoomSelectionText(forms.Form):
     text = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder': 'Напишите что-нибудь'}))
 
+
 class RoomBookingInstructions(forms.Form):
-    instructions = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Какое-нибудь предупреждение'}))
+    instructions = forms.CharField(max_length=200,
+                                   widget=forms.TextInput(attrs={'placeholder': 'Какое-нибудь предупреждение'}))
+
 
 class SecondStepDirections(forms.Form):
     directions = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Указания 2'}))
-
-
-
-

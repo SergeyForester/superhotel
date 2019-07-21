@@ -43,7 +43,21 @@ table.rates tfoot th,.reservation .pricing table tfoot th,dl.rating,.reservation
 }
 
 body {
-    background: #A1C201
+    background: white;
+}
+
+#content{
+    margin:0 auto;
+    left: 50%;
+}
+
+#headerPhoto img{
+    width:100%;
+    height:700px;
+}
+
+#banner{
+    width:100%;
 }
 
 body.widget {
