@@ -78,6 +78,12 @@
                     {{ field }}
                 {% endfor %}
             </div>
+            <div class="bookingPhotoContainer">
+                <div id="bookingPhoto1" style="float:left; margin-right:10px;"></div>
+                <div id="bookingPhoto2" style="float:left; margin-right:10px;"></div>
+                <div id="bookingPhoto3" style="float:left; margin-right:10px;"></div>
+            </div>
+
             <br>
             {% csrf_token %}
             {% for field in bookAHotelRoom %}
@@ -337,8 +343,7 @@
 
                         </div>
                         <div class='adr'>
-                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field
-                                }} {% endfor %}
+                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field }} {% endfor %}
 
                                 <br>
 
@@ -454,6 +459,7 @@
         <div class='tip' id='room_tooltip'></div>
         <script src="{% static 'js/headerPhotoForm.js' %}"></script>
         <script src="{% static 'js/photoDescriptions.js' %}"></script>
+        <script src="{% static 'js/bookingPhotos.js' %}"></script>
     </div>
 </form>
 </body>

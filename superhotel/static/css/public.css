@@ -86,7 +86,22 @@ body {
 }
 
 .height900px{
-    height:900px;
+    height:940px;
+}
+
+.height200px{
+    height:200px;
+}
+
+.bookingPhotoContainer img {
+    height:200px;
+    width:250px;
+}
+
+.bookingPhotoContainer{
+    width: 55%;
+    margin: auto;
+    padding-bottom: 20px;
 }
 
 .nameOfHotel{

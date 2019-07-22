@@ -55,9 +55,9 @@ class MapLinkForm(forms.Form):
 
 
 class UploadPhotoInfoForm(forms.Form):
-    photo1 = forms.FileField()
-    photo2 = forms.FileField()
-    photo3 = forms.FileField()
+    photo1 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'bookingPhotoForm1'}))
+    photo2 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'bookingPhotoForm2'}))
+    photo3 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'bookingPhotoForm3'}))
 
 
 class LongDescriptionOfHotel(forms.Form):
