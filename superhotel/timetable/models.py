@@ -43,5 +43,9 @@ class Data(models.Model):
     nameOfText = models.CharField(max_length=70)
     valueOfText = models.CharField(max_length=5000)
 
+class DataImages(models.Model):
+    nameOfImage = models.CharField(max_length=50, default='imageName',unique=True)
+    image = models.ImageField()
+
 class TableTime(models.Model):
     field = models.CharField(max_length=100)    

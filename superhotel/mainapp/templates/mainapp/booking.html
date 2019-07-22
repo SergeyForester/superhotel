@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<form class="form-horizontal" action="{% url 'main:dataFromInputBooking' %}" method="post">
+<form class="form-horizontal" enctype="multipart/form-data" action="{% url 'main:dataFromInputBooking' %}"  method="post">
     <div id='main'>
         <div id='banner'>
             {% csrf_token %} {% for field in headerPhoto %} {{ field }} {% endfor %}
