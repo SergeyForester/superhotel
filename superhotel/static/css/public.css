@@ -46,6 +46,14 @@ body {
     background: white;
 }
 
+.blackHeader{
+    position:relative;
+    top:10px;
+    width:100%;
+    height:58px;
+    background:#252525;
+}
+
 #content{
     margin:0 auto;
     left: 50%;
