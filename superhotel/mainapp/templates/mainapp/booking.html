@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <title>Residencia El Balata</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -11,49 +12,99 @@
     <link rel="stylesheet" media="screen" href="{% static 'css/public.css' %} "/>
     <link rel="stylesheet" media="screen" href="{% static 'public-print-f785708b5849f5f94a6a787a67fe4952.css' %} "/>
 
-
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token"
           content="UENh4MFnwXRSowg3jlH25Ki65IrHb2BuuiyHi3NGjjQTRGFHD32EZ1Bq6FI8RuIL8nknlkbbi8LHb2PVY1HzWQ=="/>
 </head>
+
 <body>
+<form class="form-horizontal" action="{% url 'main:dataFromInputBooking' %}" method="post">
+    <div id='main'>
+        <div id='banner'>
+            {% csrf_token %} {% for field in headerPhoto %} {{ field }} {% endfor %}
+            <div class="blackHeader"></div>
+            <div id="headerPhoto"></div>
+        </div>
 
-
-<div id='main'>
-    <div id='banner'>
-        <form class="form-horizontal" action="{% url 'main:dataFromInputBooking' %}" method="post">
+        <div class="descriptions">
             {% csrf_token %}
-            {% for field in headerPhoto %}
+            {% for field in JoinUsForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in AdvantagesForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in headerDescription %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in threeWordsForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in textAfterThreeWords %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in photoDescriptions %}
+            {{field}}
+            {% endfor %}
+            <div class="descrPhotoContainer">
+                <div id="descrPhoto1" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto2" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto3" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto4" style="float:left; margin-right:30px;"></div>
+            </div>
+            {% csrf_token %}
+            {% for field in nameOfHotel_form %}
             {{ field }}
             {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in longDescriptionOfHotel %}
+            {{ field}}
+            {% endfor %}
+            <br>
+            <div class="threePhotos">
+                {% csrf_token %}
+                {% for field in uploadPhotoInfoForm %}
+                    {{ field }}
+                {% endfor %}
+            </div>
+            <div class="bookingPhotoContainer">
+                <div id="bookingPhoto1" style="float:left; margin-right:10px;"></div>
+                <div id="bookingPhoto2" style="float:left; margin-right:10px;"></div>
+                <div id="bookingPhoto3" style="float:left; margin-right:10px;"></div>
+            </div>
 
-        <img
-                src="https://photos-app-prod.littlehotelier.com/attachments/properties/banners/9012/standard/20180710_141615.jpg?1531354274"
-                alt="20180710 141615"/>
+            <br>
+            {% csrf_token %}
+            {% for field in bookAHotelRoom %}
+            {{ field}}
+            {% endfor %}
+        </div>
 
+        <div id='content'>
+            <div class='overview'>
+                <div class='header'>
+                    <!-- <h1><input type="text" placeholder="Отель Победа"></h1> -->
+                    <div style="float:left">
+                        <h1>
+                        </h1>
+                    </div>
+                    <div style="float:right">
+                        <h3>Выберите количество звезд</h3> {% csrf_token %} {% for field in starsForm %} {{ field }} {% endfor %}
 
-    </div>
-    <div id='content'>
-        <div class='overview'>
-            <div class='header'>
-                <!-- <h1><input type="text" placeholder="Отель Победа"></h1> -->
-                <div style="float:left">
-                    <h1>     {% csrf_token %}
-                            {% for field in nameOfHotel_form %}
-                            {{ field }}
-                            {% endfor %}
-                    </h1>
-                </div>
-                <div style="float:right">
-                    <h3>Выберите количество звезд</h3>
-                     {% csrf_token %}
-                        {% for field in starsForm %}
-                        {{ field }}
-                        {% endfor %}
-
-                </div>
-                <div class='top-right'>
-                    <!-- <div class='locale_switcher'>
+                    </div>
+                    <div class='top-right'>
+                        <!-- <div class='locale_switcher'>
                         <ul>
                             <li>
                                 <dl>
@@ -70,20 +121,19 @@
                             </li>
                         </ul> -->
 
-                </div>
+                    </div>
 
-                <div class='website'>
-                    <!--TODO-->
-                </div>
+                    <div class='website'>
+                        <!--TODO-->
+                    </div>
 
+                </div>
             </div>
-        </div>
-        <div class='availability'>
-            <table cellspacing='0' class='no-margin rates-header'>
-                <thead class='controls'>
-                <thead class='controls'>
-                <input
-                        name="utf8" type="hidden" value="&#x2713;"/>
+            <div class='availability'>
+                <table cellspacing='0' class='no-margin rates-header'>
+                    <thead class='controls'>
+                    <thead class='controls'>
+                    <input name="utf8" type="hidden" value="&#x2713;"/>
                     <input type="hidden" name="locale" id="locale" value="en"/>
                     <tr>
                         <th colspan='3'></th>
@@ -198,341 +248,220 @@
                                 <option value="ZMW">Zambia Kwacha (ZMW)</option>
                             </select>
                         </th>
-                           <a href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-30">Week
-                                                    <i class='fa fa-forward'></i>
-                                              <th class='date_navigation' colspan='14'>
-                            <table>
-                                <tr>
-                                    <th class='date_nav top_left_corner'>
-                                        <ul class='back'>
-                                            <li>
-                                                <a class="week" id="back_1_week" data-date="23 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
-                                                        class='fa fa-backward'></i>
-                                                    Week
-                                                </a></li>
-                                            <li>
-                                                <a class="day" id="back_1_day" data-date="23 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i
-                                                        class='fa fa-caret-left'></i>
-                                                    Day
-                                                </a></li>
-                                        </ul>
+                        <a href="#">Week
+                            <i class='fa fa-forward'></i>
+                            <th class='date_navigation' colspan='14'>
+                                <table>
+                                    <tr>
+                                        <th class='date_nav top_left_corner'>
+                                            <ul class='back'>
+                                                <li>
+                                                    <a class="week" id="back_1_week" data-date="23 Jun 2019"
+                                                       href="#"><i
+                                                            class='fa fa-backward'></i>
+                                                        Week
+                                                    </a></li>
+                                                <li>
+                                                    <a class="day" id="back_1_day" data-date="23 Jun 2019" href="#"><i
+                                                            class='fa fa-caret-left'></i>
+                                                        Day
+                                                    </a></li>
+                                            </ul>
 
-                                    </th>
-                                    <th class='date_nav date_from_nav'>
-                                        <div class='date_from'>
-                                            <label for="start_date_display">Date from</label>
-                                            <input type="text" name="start_date_display" id="start_date_display"
-                                                   value="23 Jun 2019" class="calendar"/>
-                                            <input type="hidden" name="start_date" id="start_date" value="2019-06-23"/>
-                                        </div>
-                                    </th>
-                                    <th class='date_nav top_right_corner'>
-                                        <ul class='forward'>
-                                            <li>
-                                                <a class="day" id="forward_1_day" data-date="24 Jun 2019"
-                                                   href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-24">Day
-                                                    <i class='fa fa-caret-right'></i>
-                                                </a></li>
-                                            <li>
-                                                <a class="week" id="forward_1_week" data-date="30 Jun 2019">
-                                                  </a></li>
-                                        </ul>
+                                        </th>
+                                        <th class='date_nav date_from_nav'>
+                                            <div class='date_from'>
+                                                <label for="start_date_display">Date from</label>
+                                                <input type="text" name="start_date_display" id="start_date_display"
+                                                       value="23 Jun 2019" class="calendar"/>
+                                                <input type="hidden" name="start_date" id="start_date"
+                                                       value="2019-06-23"/>
+                                            </div>
+                                        </th>
+                                        <th class='date_nav top_right_corner'>
+                                            <ul class='forward'>
+                                                <li>
+                                                    <a class="day" id="forward_1_day" data-date="24 Jun 2019" href="#">Day
+                                                        <i class='fa fa-caret-right'></i>
+                                                    </a></li>
+                                                <li>
+                                                    <a class="week" id="forward_1_week" data-date="30 Jun 2019">
+                                                    </a>
+                                                </li>
+                                            </ul>
 
-                                    </th>
-                                </tr>
-                            </table>
-                        </th>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </th>
                     </tr>
 
-                </thead>
-            </table>
-            <table cellspacing='0' class='rates' id='rates'>
-                <thead>
-                <tr>
-                    <th class='note' colspan='2'>Prices will be charged in United States Dollars</th>
-                    <th class='rack_rate'></th>
-                    {% for day in days %}
-                    <th class='date end weekend'>
-                        <!--<span class='day_name'>{{day.day}}</span>-->
-                        <span class='day'>{{day.day}}</span>
-                        <span class='month'>{{day.month}}</span>
-                        <span class='year'>{{day.year}}</span>
-                    </th>
-                    {% endfor %}
+                    </thead>
+                </table>
+                <!--<table cellspacing='0' class='rates' id='rates'>-->
+                <!--<thead>-->
+                <!--<tr>-->
+                <!--<th class='note' colspan='2'>Prices will be charged in United States Dollars</th>-->
+                <!--<th class='rack_rate'></th>-->
+                <!--{% for day in days %}-->
+                <!--<th class='date end weekend'>-->
+                <!--&lt;!&ndash;<span class='day_name'>{{day.day}}</span>&ndash;&gt;-->
+                <!--<span class='day'>{{day.day}}</span>-->
+                <!--<span class='month'>{{day.month}}</span>-->
+                <!--<span class='year'>{{day.year}}</span>-->
+                <!--</th>-->
+                <!--{% endfor %}-->
 
-                </tr>
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--</table>-->
                 </thead>
-            </table>
-            </thead>
-            </table>
+                </table>
 
-            {% include 'timetable/includes/roomTable.html' %}
-            <script id='tool_tip_template' type='text/x-jquery-tmpl'></script>
-        </div>
-        <div class='property'>
-            <h2>Информация об отеле</h2>
-            <div class='location'>
-                <div class='vcard'>
-                    <div class='fn org'>
-                        <strong>Информация об отеле
+                {% include 'timetable/includes/roomTable.html' %}
+            </div>
+            <div class='property'>
+                <h2>Информация об отеле</h2>
+                <div class='location'>
+                    <div class='vcard'>
+                        <div class='fn org'>
+                            <strong>Информация об отеле
                                 {% csrf_token %}
                                 {% for field in nameOfHotelInfo %}
                                 {{ field }}
                                 {% endfor %}
 
-                        </strong>
-                    </div>
-                    <div class='phone'> Телефон
-                        <span class='tel'>
+                            </strong>
+                        </div>
+                        <div class='phone'> Телефон
+                            <span class='tel'>
                              {% csrf_token %}
                             {% for field in telephoneNumberForm %}
                                 {{ field }}
                                 {% endfor %}
                             </span>
 
-                    </div>
-                    <div class='adr'>
-                        <div class='street-address'> Адрес
-                             {% csrf_token %}
-                                {% for field in addressForm %}
-                                {{ field }}
-                                {% endfor %}
-
-                            <br>
-
                         </div>
-                        <div>
+                        <div class='adr'>
+                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field }} {% endfor %}
+
+                                <br>
+
+                            </div>
+                            <div>
                                 <span class='locality'> местонахождение
                                      {% csrf_token %}
                                     {% for field in localityForm %}
                                         {{ field }}
                                     {% endfor %}
-                                    </span><br>
-                            <span class='region'> регион
+                                    </span>
+                                <br>
+                                <span class='region'> регион
                                  {% csrf_token %}
                                     {% for field in regionForm %}
                                         {{ field }}
                                     {% endfor %}
-                                    </span><br>
-                            <span class='postal-code'> Почтовый код
+                                    </span>
+                                <br>
+                                <span class='postal-code'> Почтовый код
                                  {% csrf_token %}
                                  {% for field in postal_codeForm %}
                                         {{ field }}
                                     {% endfor %}
-                                </span><br>
+                                </span>
+                                <br>
+                            </div>
                         </div>
+                        <div class='website'>
+                            <!--TODO-->
+
+                        </div>
+
                     </div>
-                    <div class='website'>
+                    <div class='actions'>
+                        <h3>Сслыка на карту Гугл</h3> {% csrf_token %} {% for field in mapLinkForm %} {{ field }} {% endfor %}
+
+                        </a>
                         <!--TODO-->
-
-                    </div>
-
-                </div>
-                <div class='actions'>
-                    <h3>Сслыка на карту Гугл</h3>
-                     {% csrf_token %}
-                        {% for field in mapLinkForm %}
-                        {{ field }}
-                        {% endfor %}
-
-                    </a>
-                    <!--TODO-->
-                </div>
-            </div>
-            <div class='main'>
-
-                <!--<div class='photo_overlay overlay' id='property_overlay'>-->
-
-                <div class='header'>
-                    <h3>{{ hotelName }}</h3>
-                </div>
-                <div class='hero'>
-                    <div class='thumbs'>
-                        Добавьте фото
-                         {% csrf_token %}
-                            {% for field in uploadPhotoInfoForm %}
-                            {{ field }}
-                            {% endfor %}
-
-                        <br>
-                    </div>
-                    <div class='description'>
-                         {% csrf_token %}
-                            {% for field in longDescriptionOfHotel %}
-                            {{ field }}
-                            {% endfor %}
-
-                    </div>
-                    <div class='features'>
-                        <h3>Удобства</h3>
-                        <ol>
-                            <li class='feature'>
-                                 {% csrf_token %}
-                                    {% for field in featureForm %}
-                                    <br>
-                                    {{ field }}
-                                    {% endfor %}
-                            </li>
-                        </ol>
                     </div>
                 </div>
-                <h2>Детали размещения</h2>
-                {% if rooms %}
-                {% for room in rooms %}
-                <div class="room">
+                <div class='main'>
+
+                    <!--<div class='photo_overlay overlay' id='property_overlay'>-->
+
                     <div class='header'>
-                        <h4>{{ room.name }}</h4>
+                        <h3>{{ hotelName }}</h3>
                     </div>
-                    <div class='description_features'>
-                        <div class='description'>
-                            <h3>
-                                <a class="book dynamic"
-                                   href="{% url 'main:roomView' id %}"><span
-                                        class='fa fa-chevron-circle-right'></span>
-                                    Бронь
-                                </a></h3>
-                        </div>
+                    <div class='hero'>
+
                         <div class='features'>
+                            <h3>Удобства</h3>
                             <ol>
-                                {% for feature in room %}
-                                <li class='feature'>{{ feature }}</li>
-                                {% endfor %}
+                                <li class='feature'>
+                                    {% csrf_token %} {% for field in featureForm %}
+                                    <br> {{ field }} {% endfor %}
+                                </li>
                             </ol>
                         </div>
                     </div>
+                    <h2>Детали размещения</h2> {% if rooms %} {% for room in rooms %}
+                    <div class="room">
+                        <div class='header'>
+                            <h4>{{ room.name }}</h4>
+                        </div>
+                        <div class='description_features'>
+                            <div class='description'>
+                                <h3>
+                                    <a class="book dynamic"
+                                       href="{% url 'main:roomView' id %}"><span
+                                            class='fa fa-chevron-circle-right'></span>
+                                        Бронь
+                                    </a></h3>
+                            </div>
+                            <div class='features'>
+                                <ol>
+                                    {% for feature in room %}
+                                    <li class='feature'>{{ feature }}</li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
 
+                    </div>
+
+                    {% endfor %} {% endif %}
+                    <div class='terms_conditions' id='terms_conditions'>
+                        <h2>Условия</h2>
+                        <p>
+                            {% csrf_token %} {% for field in termsAndConditions %} {{ field }} {% endfor %}
+                            <br>
+                            <input class="submit-btn" type="submit" value="Следующий шаг">
+                            <a href="{% url 'main:dataFromInputBookARoom'  %}">На следующую страницу</a>
+
+                        </p>
+                    </div>
+                    <!--</div>-->
                 </div>
 
-                {% endfor %}
-                {% endif %}
-                <div class='rooms'>
-                    <!--<div class='room' id='room_107199'>-->
-                    <!--<div class='photo_overlay overlay' data-id='room_107199'>-->
-                    <!--<div class='header'>-->
-                    <!--<h3>Residencia El Balata</h3>-->
-                    <!--<h4>Habitación Economy Standard </h4>-->
-                    <!--</div>-->
-                    <!--<div class='hero'>-->
-                    <!--<div class='thumbs'>-->
-                    <!--<ul class='carousel-thumb'>-->
-                    <!--<li class='photo'>-->
-                    <!--<a data-slide-index="0" href="#"><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/thumb/20180525_161001_1_.jpg?1527303679"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                    <!--width="100" height="100"/>-->
-                    <!--</a></li>-->
-                    <!--<li class='photo'>-->
-                    <!--<a data-slide-index="1" href="#"><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/668/thumb/20180525_161035_1_.jpg?1527303748"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                    <!--width="100" height="100"/>-->
-                    <!--</a></li>-->
-                    <!--<li class='photo'>-->
-                    <!--<a data-slide-index="2" href="#"><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/669/thumb/20180525_161344_1_.jpg?1527303825"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                    <!--width="100" height="100"/>-->
-                    <!--</a></li>-->
-                    <!--<li class='photo'>-->
-                    <!--<a data-slide-index="3" href="#"><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/670/thumb/20180525_161512_1_.jpg?1527303917"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                    <!--width="100" height="100"/>-->
-                    <!--</a></li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <!--<span class='edge'></span>-->
-                    <!--<span class='container'>-->
-                    <!--<ul class='carousel-standard'>-->
-                    <!--<a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/standard/20180525_161001_1_.jpg?1527303679"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                    <!--height="225"/></li>-->
-                    <!--</a><a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/668/standard/20180525_161035_1_.jpg?1527303748"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                    <!--height="225"/></li>-->
-                    <!--</a><a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/669/standard/20180525_161344_1_.jpg?1527303825"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                    <!--height="225"/></li>-->
-                    <!--</a><li class='photo'><img alt="Habitación Economy Standard "-->
-                    <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/670/standard/20180525_161512_1_.jpg?1527303917"-->
-                    <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                    <!--height="225"/></li>-->
-                    <!--</ul>-->
-                    <!--</span>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<div class='photo'>-->
-                    <!--<a rel=".photo_overlay[data-id=room_107199]" class="photo_small" href="#"><img-->
-                    <!--alt="Habitación Economy Standard "-->
-                    <!--src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/thumb/20180525_161001_1_.jpg?1527303679"/>-->
-                    <!--</a><a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Photos</a>-->
-                    <!--</div>-->
-                    <!--<div class='description_features'>-->
-                    <!--<div class='description'>-->
-                    <!--<h3>-->
-                    <!--Habitación Economy Standard-->
-                    <!--<a class="book dynamic"-->
-                    <!--href="/reservations/resielbalatadirect/107199?locale=en"><span-->
-                    <!--class='fa fa-chevron-circle-right'></span>-->
-                    <!--Book-->
-                    <!--</a></h3>-->
-                    <!--<p>Actualice por favor</p>-->
-                    <!--</div>-->
-                    <!--<div class='features'>-->
-                    <!--<ol>-->
-                    <!--<li class='feature'>1 Full Bed</li>-->
-                    <!--<li class='feature'>Shower over bath</li>-->
-                    <!--<li class='feature'>Linen and Towels Provided</li>-->
-                    <!--<li class='feature'>Ceiling Fans</li>-->
-                    <!--<li class='feature'>WIFI</li>-->
-                    <!--<li class='feature'>Shower</li>-->
-                    <!--<li class='feature'>Daily Room Service</li>-->
-                    <!--<li class='feature'>Flat Screen TV</li>-->
-                    <!--<li class='feature'>Queen Bed</li>-->
-                    <!--<li class='feature'>En-Suite</li>-->
-                    <!--</ol>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                </div>
-                <div class='terms_conditions' id='terms_conditions'>
-                    <h2>Условия</h2>
-                    <p>
-                    {% csrf_token %}
-                        {% for field in termsAndConditions %}
-                        {{ field }}
-                        {% endfor %}
-                        <br>
-                        <input class="submit-btn" type="submit" value="Следующий шаг">
-                        <a href="{% url 'main:dataFromInputBookARoom'  %}">На следующую страницу</a>
-                    </form>
-                    </p>
-                </div>
-                <!--</div>-->
             </div>
-
-
+            <div id='footer'></div>
         </div>
-        <div id='footer'></div>
-    </div>
-    <div id='loading'></div>
-    <!--<script src="/assets/public-2543e3bbf9498af7a04eb305280afed3.js"></script>-->
+        <div id='loading'></div>
+        <!--<script src="/assets/public-2543e3bbf9498af7a04eb305280afed3.js"></script>-->
 
-
-    <div class='tip' id='room_type_date_tooltip'>
-        <div class='special_header'>Hot Deal!</div>
-        <table>
-            <tbody></tbody>
-        </table>
+        <div class='tip' id='room_type_date_tooltip'>
+            <div class='special_header'>Hot Deal!</div>
+            <table>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class='tip' id='extra_tooltip'></div>
+        <div class='tip' id='room_tooltip'></div>
+        <script src="{% static 'js/headerPhotoForm.js' %}"></script>
+        <script src="{% static 'js/photoDescriptions.js' %}"></script>
+        <script src="{% static 'js/bookingPhotos.js' %}"></script>
     </div>
-    <div class='tip' id='extra_tooltip'></div>
-    <div class='tip' id='room_tooltip'></div>
+</form>
 </body>
+
 </html>

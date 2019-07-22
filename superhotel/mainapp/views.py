@@ -6,12 +6,15 @@ from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from mainapp.forms import HeaderPhotoForm, NameOfHotelForm, StarsForm, NameOfHotelInfoForm
 from mainapp.forms import TelephoneNumberForm, AddressForm, LocalityForm, RegionForm, PostalCodeForm
 from mainapp.forms import MapLinkForm, UploadPhotoInfoForm, LongDescriptionOfHotel, FeatureForm, TermsAndConditionsForm
-from mainapp.forms import FirstStepDirections, RoomSelectionText, RoomBookingInstructions, SecondStepDirections
+from mainapp.forms import FirstStepDirections, HeaderDescription, RoomSelectionText, AdvantagesForm, \
+    RoomBookingInstructions, \
+    SecondStepDirections, BookAHotelRoom, JoinUsForm, ThreeWordsForm, TextAfterThreeWords, PhotoDescriptions
 # Create your views here.
 
 from django.shortcuts import render, HttpResponse
 from mainapp.models import constructNameHotel
 from django.http import JsonResponse
+
 
 def mainPage(request):
     return render(request, 'mainapp/index.html')
@@ -49,6 +52,13 @@ def dataFromInputBooking(request):
     longDescriptionOfHotel = LongDescriptionOfHotel(request.POST)
     featureForm = FeatureForm(request.POST)
     termsAndConditions = TermsAndConditionsForm(request.POST)
+    joinUsForm = JoinUsForm(request.POST)
+    advantagesForm = AdvantagesForm(request.POST)
+    headerDescription = HeaderDescription(request.POST)
+    threeWordsForm = ThreeWordsForm(request.POST)
+    textAfterThreeWords = TextAfterThreeWords(request.POST)
+    photoDescriptions = PhotoDescriptions(request.POST)
+    bookAHotelRoom = BookAHotelRoom(request.POST)
 
     roomTable = Room.objects.all()
     print(roomTable)
@@ -65,15 +75,20 @@ def dataFromInputBooking(request):
     print(days[-1].strftime("%A"))
     print(days)
 
-    context = {'headerPhoto':headerPhoto, 'nameOfHotel_form':nameOfHotel_form,
-               'starsForm':starsForm, 'nameOfHotelInfo':nameOfHotelInfo,
-               'telephoneNumberForm':telephoneNumberForm, 'addressForm':addressForm,
-               'localityForm':localityForm, 'regionForm':regionForm,
-               'postal_codeForm':postal_codeForm, 'mapLinkForm':mapLinkForm,
-               'uploadPhotoInfoForm':uploadPhotoInfoForm, 'longDescriptionOfHotel':longDescriptionOfHotel,
-               'featureForm':featureForm, 'termsAndConditions':termsAndConditions, 'roomTable':roomTable, 'days':days}
+    context = {'headerPhoto': headerPhoto, 'nameOfHotel_form': nameOfHotel_form,
+               'starsForm': starsForm, 'nameOfHotelInfo': nameOfHotelInfo,
+               'telephoneNumberForm': telephoneNumberForm, 'addressForm': addressForm,
+               'localityForm': localityForm, 'regionForm': regionForm,
+               'postal_codeForm': postal_codeForm, 'mapLinkForm': mapLinkForm,
+               'uploadPhotoInfoForm': uploadPhotoInfoForm, 'longDescriptionOfHotel': longDescriptionOfHotel,
+               'featureForm': featureForm, 'termsAndConditions': termsAndConditions, 'roomTable': roomTable,
+               'days': days, 'JoinUsForm': joinUsForm, 'AdvantagesForm': advantagesForm,
+               'headerDescription': headerDescription, 'threeWordsForm': ThreeWordsForm,
+               'textAfterThreeWords': textAfterThreeWords, 'photoDescriptions':photoDescriptions,
+               'bookAHotelRoom':bookAHotelRoom}
 
     return render(request, 'mainapp/booking.html', context)
+
 
 # из cleaned_data достаем данные и помещаем в файлы
 
@@ -83,10 +98,9 @@ def dataFromInputBookARoom(request):
     roomBookingInstructions = RoomBookingInstructions(request.POST)
     secondStepDirections = SecondStepDirections(request.POST)
 
-
-    context = {'firstStepDirections':firstStepDirections,
-               'roomSelectionText':roomSelectionText,
-               'roomBookingInstructions':roomBookingInstructions,
-               'secondStepDirections':secondStepDirections}
+    context = {'firstStepDirections': firstStepDirections,
+               'roomSelectionText': roomSelectionText,
+               'roomBookingInstructions': roomBookingInstructions,
+               'secondStepDirections': secondStepDirections}
 
     return render(request, 'mainapp/book_a_room.html', context)
