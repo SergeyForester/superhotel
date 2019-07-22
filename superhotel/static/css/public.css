@@ -85,6 +85,42 @@ body {
     font-family: "Arial";
 }
 
+.property{
+    font-family:"Open Sans";
+    font-size:14px;
+    line-height:20px;
+    text-decoration:none;
+    width:30%;
+    height:800px;
+    color:#767676;
+}
+
+.property input{
+    width:300px;
+}
+
+.property textarea{
+    width:400px;
+    height:145px;
+}
+
+.property input::placeholder{
+    font-weight:500;
+    font-family:"Open Sans";
+    font-size:16px;
+    line-height:20px;
+    text-decoration:none;
+    width:30%;
+    height:800px;
+    color:#767676;
+}
+
+.property strong{
+    font-family:"Roboto", sans-serif;
+    text-transform:uppercase;
+    color:#333333;
+}
+
 .height900px{
     height:940px;
 }

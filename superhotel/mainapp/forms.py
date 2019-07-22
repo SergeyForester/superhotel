@@ -30,11 +30,13 @@ class NameOfHotelInfoForm(forms.Form):
 
 
 class TelephoneNumberForm(forms.Form):
-    number = forms.IntegerField(required=True)
+    number = forms.IntegerField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': '+30 123 123 12 12'}))
 
 
 class AddressForm(forms.Form):
-    address = forms.CharField(max_length=100)
+    address = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'placeholder': 'г.Москва, Ленинградский проспект'}))
 
 
 class LocalityForm(forms.Form):
@@ -46,7 +48,8 @@ class RegionForm(forms.Form):
 
 
 class PostalCodeForm(forms.Form):
-    postalCode = forms.IntegerField(required=True)
+    postalCode = forms.IntegerField(required=True, widget=forms.TextInput(
+        attrs={'placeholder': '248880'}))
 
 
 class MapLinkForm(forms.Form):
