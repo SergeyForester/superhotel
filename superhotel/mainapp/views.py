@@ -116,9 +116,51 @@ def dataFromInputBooking(request):
         if longDescriptionOfHotel.is_valid():
             Data.objects.create(nameOfText = 'longDescription',valueOfText=longDescriptionOfHotel.cleaned_data['longdescr'])
 
+        if featureForm.is_valid():
+            Data.objects.create(nameOfText = 'feature1',valueOfText=featureForm.cleaned_data['feature1'])
+            Data.objects.create(nameOfText = 'feature2',valueOfText=featureForm.cleaned_data['feature2'])
+            Data.objects.create(nameOfText = 'feature3',valueOfText=featureForm.cleaned_data['feature3'])
+            Data.objects.create(nameOfText = 'feature4',valueOfText=featureForm.cleaned_data['feature4'])
+            Data.objects.create(nameOfText = 'feature5',valueOfText=featureForm.cleaned_data['feature5'])
+            Data.objects.create(nameOfText = 'feature6',valueOfText=featureForm.cleaned_data['feature6'])
+            Data.objects.create(nameOfText = 'feature7',valueOfText=featureForm.cleaned_data['feature7'])
+            Data.objects.create(nameOfText = 'feature8',valueOfText=featureForm.cleaned_data['feature8'])
+
+        if termsAndConditions.is_valid():
+            Data.objects.create(nameOfText='termsAndConditions',
+                                valueOfText=termsAndConditions.cleaned_data['terms'])
+
+        if joinUsForm.is_valid():
+            Data.objects.create(nameOfText='joinUs',
+                                valueOfText=joinUsForm.cleaned_data['text'])
+
+        if advantagesForm.is_valid():
+            Data.objects.create(nameOfText='advantages',
+                                valueOfText=advantagesForm.cleaned_data['text'])
+
+        if headerDescription.is_valid():
+            Data.objects.create(nameOfText='headerDescription',
+                                valueOfText=headerDescription.cleaned_data['text'])
+
+        if threeWordsForm.is_valid():
+            Data.objects.create(nameOfText='threeWords',
+                                valueOfText=threeWordsForm.cleaned_data['text'])
+
+        if textAfterThreeWords.is_valid():
+            Data.objects.create(nameOfText='textAfterThreeWords',
+                                valueOfText=textAfterThreeWords.cleaned_data['text'])
+
+        if photoDescriptions.is_valid():
+            DataImages.objects.create(nameOfImage='photoDescription1',image=photoDescriptions.cleaned_data['photo1'])
+            DataImages.objects.create(nameOfImage='photoDescription2',image=photoDescriptions.cleaned_data['photo2'])
+            DataImages.objects.create(nameOfImage='photoDescription3',image=photoDescriptions.cleaned_data['photo3'])
+            DataImages.objects.create(nameOfImage='photoDescription4',image=photoDescriptions.cleaned_data['photo4'])
+
+        if bookAHotelRoom.is_valid():
+            Data.objects.create(nameOfText='threeWords',
+                                valueOfText=bookAHotelRoom.cleaned_data['text'])
+
         return HttpResponseRedirect(reverse('main:dataFromInputBookARoom'))
-
-
 
     else:
         headerPhoto = HeaderPhotoForm()
