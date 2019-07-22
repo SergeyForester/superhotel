@@ -85,6 +85,40 @@ class TermsAndConditionsForm(forms.Form):
     terms = forms.CharField(max_length=3000)
 
 
+class JoinUsForm(forms.Form):
+    text = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'placeholder': 'JOIN US AT THE FALCON THIS SPRING!', 'class': 'joinUs'}))
+
+
+class AdvantagesForm(forms.Form):
+    text = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
+        'placeholder': 'Gastro Restaurant, Country Pub and Hotel, The Falcon offers fine food, cosy corners and a real rustic feel.',
+        'class': 'advantages'}))
+
+
+class HeaderDescription(forms.Form):
+    text = forms.CharField(max_length=400, widget=forms.Textarea(attrs={
+        'placeholder': 'Enjoy our Autumn Menu – irresistibly innovative, with a choice of delightfully fresh flavours and familiar favourites. Toast our Sunday Roast, or simply savour a hand-pulled cask ale. Take a stroll straight off the car park down the public footpath and you’ll find stunning countryside. Amble past pretty St Mary’s Church, and down country lanes. Finish back at the Falcon for a well earned lunch.',
+        'class': 'headerDescription', 'cols': 80, 'rows': 30}))
+
+
+class ThreeWordsForm(forms.Form):
+    text = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'placeholder': 'DINE . DRINK . STAY', 'class': 'threeWords'}))
+
+
+class TextAfterThreeWords(forms.Form):
+    text = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={
+            'placeholder': 'View our latest menus, book one of our comfortable rooms for a short stay or feel special and indulge in our superb offers.',
+            'class': 'afterThreeWords'}))
+
+class PhotoDescriptions(forms.Form):
+    photo1 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription1'}))
+    photo2 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription2'}))
+    photo3 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription3'}))
+    photo4 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription4'}))
+
 # forms for book_a_room.html
 
 class FirstStepDirections(forms.Form):

@@ -22,12 +22,47 @@
             {% csrf_token %} {% for field in headerPhoto %} {{ field }} {% endfor %}
             <div class="blackHeader"></div>
                 <div id="headerPhoto"></div>
+        </div>
 
-                <!--<img-->
-                <!--src="https://photos-app-prod.littlehotelier.com/attachments/properties/banners/9012/standard/20180710_141615.jpg?1531354274"-->
-                <!--alt="20180710 141615"/>-->
+        <div class="descriptions">
+            {% csrf_token %}
+            {% for field in JoinUsForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in AdvantagesForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in headerDescription %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in threeWordsForm %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in textAfterThreeWords %}
+            {{field}}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in photoDescriptions %}
+            {{field}}
+            {% endfor %}
+            <div class="descrPhotoContainer">
+                <div id="descrPhoto1" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto2" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto3" style="float:left; margin-right:30px;"></div>
+                <div id="descrPhoto4" style="float:left; margin-right:30px;"></div>
+            </div>
 
         </div>
+
         <div id='content'>
             <div class='overview'>
                 <div class='header'>
@@ -498,6 +533,7 @@
         <div class='tip' id='extra_tooltip'></div>
         <div class='tip' id='room_tooltip'></div>
         <script src="{% static 'js/headerPhotoForm.js' %}"></script>
+        <script src="{% static 'js/photoDescriptions.js' %}"></script>
     </div>
     </form>
 </body>

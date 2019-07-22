@@ -46,6 +46,122 @@ body {
     background: white;
 }
 
+.joinUs::placeholder{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: Arial;
+
+}
+
+.advantages::placeholder{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height:25.2px;
+    font-family: "Open Sans";
+}
+
+.headerDescription{
+    width:680px;
+    height:101px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    line-height:25.2px;
+    font-family: "Open Sans";
+}
+
+.threeWords{
+    width:500px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    line-height:39px;
+    text-transform:uppercase;
+    font-family: "Arial";
+}
+
+.descrPhotoContainer{
+    height:900px;
+    width:80%;
+    margin:auto;
+    padding-bottom: 20px;
+}
+
+
+
+.afterThreeWords{
+    width:1040px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height:25.2px;
+    text-transform:uppercase;
+    font-family: "Open Sans";
+}
+
+.afterThreeWords::placeholder{
+    width:655px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height:25.2px;
+    text-transform:uppercase;
+    font-family: "Open Sans";
+}
+
+.threeWords::placeholder{
+    width:300px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    line-height:39px;
+    text-transform:uppercase;
+    font-family: "Arial";
+}
+
+.headerDescription::placeholder{
+
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    line-height:25.2px;
+    font-family: "Open Sans";
+}
+
+
+.advantages{
+    width:655px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height:25.2px;
+    font-family: "Open Sans";
+}
+
+.descriptions{
+    text-align:center;
+    width:80%;
+    margin:100px auto;
+}
+.joinUs{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: Arial;
+    text-align:center;
+    width:566px;
+}
+
 .blackHeader{
     position:relative;
     top:10px;
