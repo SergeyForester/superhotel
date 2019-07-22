@@ -5,23 +5,25 @@
 <head>
     <title>Residencia El Balata</title>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <meta content='Virginia y Pedro son una pareja Italo-Dominicana, juntos con sus hijos pequeños viven y dirigen este hotel con encanto. El Balata, refleja claramente la unión de estas dos familias de diferentes culturas y estilos, pero en completa armonía creando un pequeño hotel sin precedentes en el Caribe.&#x000A;&#x000A;' name='description'>
+    <meta content='Virginia y Pedro son una pareja Italo-Dominicana, juntos con sus hijos pequeños viven y dirigen este hotel con encanto. El Balata, refleja claramente la unión de estas dos familias de diferentes culturas y estilos, pero en completa armonía creando un pequeño hotel sin precedentes en el Caribe.&#x000A;&#x000A;'
+          name='description'>
 
-    <link rel="stylesheet" media="screen" href="{% static 'css/public-f6ccfa2f22ed0069d927e67be1fddc44.css' %}" />
-    <link rel="stylesheet" media="screen" href="{% static 'css/public.css' %} " />
-    <link rel="stylesheet" media="screen" href="{% static 'public-print-f785708b5849f5f94a6a787a67fe4952.css' %} " />
+    <link rel="stylesheet" media="screen" href="{% static 'css/public-f6ccfa2f22ed0069d927e67be1fddc44.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'css/public.css' %} "/>
+    <link rel="stylesheet" media="screen" href="{% static 'public-print-f785708b5849f5f94a6a787a67fe4952.css' %} "/>
 
-    <meta name="csrf-param" content="authenticity_token" />
-    <meta name="csrf-token" content="UENh4MFnwXRSowg3jlH25Ki65IrHb2BuuiyHi3NGjjQTRGFHD32EZ1Bq6FI8RuIL8nknlkbbi8LHb2PVY1HzWQ==" />
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="UENh4MFnwXRSowg3jlH25Ki65IrHb2BuuiyHi3NGjjQTRGFHD32EZ1Bq6FI8RuIL8nknlkbbi8LHb2PVY1HzWQ=="/>
 </head>
 
 <body>
-    <form class="form-horizontal" action="{% url 'main:dataFromInputBooking' %}" method="post">
+<form class="form-horizontal" action="{% url 'main:dataFromInputBooking' %}" method="post">
     <div id='main'>
         <div id='banner'>
             {% csrf_token %} {% for field in headerPhoto %} {{ field }} {% endfor %}
             <div class="blackHeader"></div>
-                <div id="headerPhoto"></div>
+            <div id="headerPhoto"></div>
         </div>
 
         <div class="descriptions">
@@ -60,7 +62,27 @@
                 <div id="descrPhoto3" style="float:left; margin-right:30px;"></div>
                 <div id="descrPhoto4" style="float:left; margin-right:30px;"></div>
             </div>
-
+            {% csrf_token %}
+            {% for field in nameOfHotel_form %}
+            {{ field }}
+            {% endfor %}
+            <br>
+            {% csrf_token %}
+            {% for field in longDescriptionOfHotel %}
+            {{ field}}
+            {% endfor %}
+            <br>
+            <div class="threePhotos">
+                {% csrf_token %}
+                {% for field in uploadPhotoInfoForm %}
+                    {{ field }}
+                {% endfor %}
+            </div>
+            <br>
+            {% csrf_token %}
+            {% for field in bookAHotelRoom %}
+            {{ field}}
+            {% endfor %}
         </div>
 
         <div id='content'>
@@ -68,11 +90,8 @@
                 <div class='header'>
                     <!-- <h1><input type="text" placeholder="Отель Победа"></h1> -->
                     <div style="float:left">
-                        <h1> {% csrf_token %}
-                        {% for field in nameOfHotel_form %}
-                        {{ field }}
-                        {% endfor %}
-                    </h1>
+                        <h1>
+                        </h1>
                     </div>
                     <div style="float:right">
                         <h3>Выберите количество звезд</h3> {% csrf_token %} {% for field in starsForm %} {{ field }} {% endfor %}
@@ -107,168 +126,171 @@
             <div class='availability'>
                 <table cellspacing='0' class='no-margin rates-header'>
                     <thead class='controls'>
-                        <thead class='controls'>
-                            <input name="utf8" type="hidden" value="&#x2713;" />
-                            <input type="hidden" name="locale" id="locale" value="en" />
-                            <tr>
-                                <th colspan='3'></th>
-                                <th class='promotion' colspan='14'>
-                                    <button name="button" type="submit" class="apply"><span class='fa fa-check-circle'></span> Apply
-                                    </button>
-                                    <input type="text" name="promotion_code" id="promotion_code" value="" />
-                                    <label for='promotion_code'>Enter a promotional code</label>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class='currency_picker' colspan='3'>
-                                    <label for='currency'>Show prices in</label>
-                                    <select name="currency">
-                                        <option value="ALL">Albania Leke (ALL)</option>
-                                        <option value="AUD">Australia Dollars (AUD)</option>
-                                        <option value="BWP">Botswana Pulas (BWP)</option>
-                                        <option value="CNY">China Yuan Renminbi (CNY)</option>
-                                        <option value="JPY">Japan Yen (JPY)</option>
-                                        <option value="JOD">Jordan Dinars (JOD)</option>
-                                        <option value="NZD">New Zealand Dollars (NZD)</option>
-                                        <option selected="selected" value="USD">United States Dollars (USD)</option>
-                                        <option value="" disabled="disabled">-------------</option>
-                                        <option value="ARS">Argentina Pesos (ARS)</option>
-                                        <option value="AMD">Armenia Drams (AMD)</option>
-                                        <option value="AZN">Azerbaijan Manats (AZN)</option>
-                                        <option value="BSD">Bahamas Dollars (BSD)</option>
-                                        <option value="BHD">Bahrain Dinars (BHD)</option>
-                                        <option value="BBD">Barbados Dollars (BBD)</option>
-                                        <option value="BYN">Belarus Rubles (BYN)</option>
-                                        <option value="BZD">Belize Dollars (BZD)</option>
-                                        <option value="BOB">Bolivia Bolivianos (BOB)</option>
-                                        <option value="BAM">Bosnia and Herzegovina Convertible Marka (BAM)</option>
-                                        <option value="BRL">Brazil Reais (BRL)</option>
-                                        <option value="BGN">Bulgaria Leva (BGN)</option>
-                                        <option value="KHR">Cambodia Riels (KHR)</option>
-                                        <option value="CAD">Canada Dollars (CAD)</option>
-                                        <option value="CVE">Cape Verde Escudos (CVE)</option>
-                                        <option value="CLP">Chile Pesos (CLP)</option>
-                                        <option value="COP">Colombia Pesos (COP)</option>
-                                        <option value="XOF">Communauté Financière Africaine Francs BCEAO (XOF)</option>
-                                        <option value="XAF">Communauté Financière Africaine Francs BEAC (XAF)</option>
-                                        <option value="XPF">Comptoirs Français du Pacifique Francs (XPF)</option>
-                                        <option value="CRC">Costa Rica Colones (CRC)</option>
-                                        <option value="HRK">Croatia Kuna (HRK)</option>
-                                        <option value="CZK">Czechia Koruny (CZK)</option>
-                                        <option value="DKK">Denmark Kroner (DKK)</option>
-                                        <option value="DOP">Dominican Republic Pesos (DOP)</option>
-                                        <option value="XCD">East Caribbean Dollars (XCD)</option>
-                                        <option value="EGP">Egypt Pounds (EGP)</option>
-                                        <option value="SZL">eSwatini Emalangeni (SZL)</option>
-                                        <option value="ETB">Ethiopia Birr (ETB)</option>
-                                        <option value="EUR">Euro (EUR)</option>
-                                        <option value="FJD">Fiji Dollars (FJD)</option>
-                                        <option value="GEL">Georgia Lari (GEL)</option>
-                                        <option value="GHC">Ghana Cedis (GHC)</option>
-                                        <option value="GHS">Ghana Cedis (GHS)</option>
-                                        <option value="GTQ">Guatemala Quetzales (GTQ)</option>
-                                        <option value="HNL">Honduras Lempiras (HNL)</option>
-                                        <option value="HKD">Hong Kong Dollars (HKD)</option>
-                                        <option value="HUF">Hungary Forint (HUF)</option>
-                                        <option value="ISK">Iceland Kronur (ISK)</option>
-                                        <option value="INR">India Rupees (INR)</option>
-                                        <option value="IDR">Indonesia Rupiahs (IDR)</option>
-                                        <option value="IRR">Iran Rials (IRR)</option>
-                                        <option value="ILS">Israel New Shekels (ILS)</option>
-                                        <option value="KES">Kenya Shillings (KES)</option>
-                                        <option value="KWD">Kuwait Dinars (KWD)</option>
-                                        <option value="LBP">Lebanon Pounds (LBP)</option>
-                                        <option value="MWK">Malawi Kwachas (MWK)</option>
-                                        <option value="MYR">Malaysia Ringgits (MYR)</option>
-                                        <option value="MUR">Mauritius Rupees (MUR)</option>
-                                        <option value="MXN">Mexico Pesos (MXN)</option>
-                                        <option value="MAD">Morocco Dirhams (MAD)</option>
-                                        <option value="MZN">Mozambique Meticais (MZN)</option>
-                                        <option value="NAD">Namibia Dollars (NAD)</option>
-                                        <option value="NIO">Nicaragua Cordobas (NIO)</option>
-                                        <option value="NGN">Nigeria Nairas (NGN)</option>
-                                        <option value="NOK">Norway Kroner (NOK)</option>
-                                        <option value="OMR">Oman Rials (OMR)</option>
-                                        <option value="PEN">Peru Soles (PEN)</option>
-                                        <option value="PHP">Philippines Pesos (PHP)</option>
-                                        <option value="PLN">Poland Zlotych (PLN)</option>
-                                        <option value="QAR">Qatar Riyals (QAR)</option>
-                                        <option value="RON">Romania Lei (RON)</option>
-                                        <option value="RUB">Russia Rubles (RUB)</option>
-                                        <option value="WST">Samoa Tala (WST)</option>
-                                        <option value="SAR">Saudi Arabia Riyals (SAR)</option>
-                                        <option value="RSD">Serbia Dinars (RSD)</option>
-                                        <option value="SCR">Seychelles Rupees (SCR)</option>
-                                        <option value="SGD">Singapore Dollars (SGD)</option>
-                                        <option value="ZAR">South Africa Rand (ZAR)</option>
-                                        <option value="KRW">South Korea Won (KRW)</option>
-                                        <option value="SDG">Sudan Pounds (SDG)</option>
-                                        <option value="SEK">Sweden Kronor (SEK)</option>
-                                        <option value="CHF">Switzerland Francs (CHF)</option>
-                                        <option value="TWD">Taiwan New Dollars (TWD)</option>
-                                        <option value="TSh">Tanzania Shillings (TSh)</option>
-                                        <option value="TZS">Tanzania Shillings (TZS)</option>
-                                        <option value="THB">Thailand Baht (THB)</option>
-                                        <option value="TOP">Tonga Pa&#39;anga (TOP)</option>
-                                        <option value="TTD">Trinidad and Tobago Dollars (TTD)</option>
-                                        <option value="TRY">Turkey Lira (TRY)</option>
-                                        <option value="UGX">Uganda Shillings (UGX)</option>
-                                        <option value="UAH">Ukraine Hryvnia (UAH)</option>
-                                        <option value="AED">United Arab Emirates Dirhams (AED)</option>
-                                        <option value="GBP">United Kingdom Pounds (GBP)</option>
-                                        <option value="UYU">Uruguay Pesos (UYU)</option>
-                                        <option value="VUV">Vanuatu Vatu (VUV)</option>
-                                        <option value="VEF">Venezuela Bolívares (VEF)</option>
-                                        <option value="ZMW">Zambia Kwacha (ZMW)</option>
-                                    </select>
-                                </th>
-                                <a href="#">Week
-                        <i class='fa fa-forward'></i>
-                        <th class='date_navigation' colspan='14'>
-                            <table>
-                                <tr>
-                                    <th class='date_nav top_left_corner'>
-                                        <ul class='back'>
-                                            <li>
-                                                <a class="week" id="back_1_week" data-date="23 Jun 2019"
-                                                   href="#"><i
-                                                        class='fa fa-backward'></i>
-                                                    Week
-                                                </a></li>
-                                <li>
-                                    <a class="day" id="back_1_day" data-date="23 Jun 2019" href="#"><i
-                                                        class='fa fa-caret-left'></i>
-                                                    Day
-                                                </a></li>
-                                </ul>
+                    <thead class='controls'>
+                    <input name="utf8" type="hidden" value="&#x2713;"/>
+                    <input type="hidden" name="locale" id="locale" value="en"/>
+                    <tr>
+                        <th colspan='3'></th>
+                        <th class='promotion' colspan='14'>
+                            <button name="button" type="submit" class="apply"><span class='fa fa-check-circle'></span>
+                                Apply
+                            </button>
+                            <input type="text" name="promotion_code" id="promotion_code" value=""/>
+                            <label for='promotion_code'>Enter a promotional code</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class='currency_picker' colspan='3'>
+                            <label for='currency'>Show prices in</label>
+                            <select name="currency">
+                                <option value="ALL">Albania Leke (ALL)</option>
+                                <option value="AUD">Australia Dollars (AUD)</option>
+                                <option value="BWP">Botswana Pulas (BWP)</option>
+                                <option value="CNY">China Yuan Renminbi (CNY)</option>
+                                <option value="JPY">Japan Yen (JPY)</option>
+                                <option value="JOD">Jordan Dinars (JOD)</option>
+                                <option value="NZD">New Zealand Dollars (NZD)</option>
+                                <option selected="selected" value="USD">United States Dollars (USD)</option>
+                                <option value="" disabled="disabled">-------------</option>
+                                <option value="ARS">Argentina Pesos (ARS)</option>
+                                <option value="AMD">Armenia Drams (AMD)</option>
+                                <option value="AZN">Azerbaijan Manats (AZN)</option>
+                                <option value="BSD">Bahamas Dollars (BSD)</option>
+                                <option value="BHD">Bahrain Dinars (BHD)</option>
+                                <option value="BBD">Barbados Dollars (BBD)</option>
+                                <option value="BYN">Belarus Rubles (BYN)</option>
+                                <option value="BZD">Belize Dollars (BZD)</option>
+                                <option value="BOB">Bolivia Bolivianos (BOB)</option>
+                                <option value="BAM">Bosnia and Herzegovina Convertible Marka (BAM)</option>
+                                <option value="BRL">Brazil Reais (BRL)</option>
+                                <option value="BGN">Bulgaria Leva (BGN)</option>
+                                <option value="KHR">Cambodia Riels (KHR)</option>
+                                <option value="CAD">Canada Dollars (CAD)</option>
+                                <option value="CVE">Cape Verde Escudos (CVE)</option>
+                                <option value="CLP">Chile Pesos (CLP)</option>
+                                <option value="COP">Colombia Pesos (COP)</option>
+                                <option value="XOF">Communauté Financière Africaine Francs BCEAO (XOF)</option>
+                                <option value="XAF">Communauté Financière Africaine Francs BEAC (XAF)</option>
+                                <option value="XPF">Comptoirs Français du Pacifique Francs (XPF)</option>
+                                <option value="CRC">Costa Rica Colones (CRC)</option>
+                                <option value="HRK">Croatia Kuna (HRK)</option>
+                                <option value="CZK">Czechia Koruny (CZK)</option>
+                                <option value="DKK">Denmark Kroner (DKK)</option>
+                                <option value="DOP">Dominican Republic Pesos (DOP)</option>
+                                <option value="XCD">East Caribbean Dollars (XCD)</option>
+                                <option value="EGP">Egypt Pounds (EGP)</option>
+                                <option value="SZL">eSwatini Emalangeni (SZL)</option>
+                                <option value="ETB">Ethiopia Birr (ETB)</option>
+                                <option value="EUR">Euro (EUR)</option>
+                                <option value="FJD">Fiji Dollars (FJD)</option>
+                                <option value="GEL">Georgia Lari (GEL)</option>
+                                <option value="GHC">Ghana Cedis (GHC)</option>
+                                <option value="GHS">Ghana Cedis (GHS)</option>
+                                <option value="GTQ">Guatemala Quetzales (GTQ)</option>
+                                <option value="HNL">Honduras Lempiras (HNL)</option>
+                                <option value="HKD">Hong Kong Dollars (HKD)</option>
+                                <option value="HUF">Hungary Forint (HUF)</option>
+                                <option value="ISK">Iceland Kronur (ISK)</option>
+                                <option value="INR">India Rupees (INR)</option>
+                                <option value="IDR">Indonesia Rupiahs (IDR)</option>
+                                <option value="IRR">Iran Rials (IRR)</option>
+                                <option value="ILS">Israel New Shekels (ILS)</option>
+                                <option value="KES">Kenya Shillings (KES)</option>
+                                <option value="KWD">Kuwait Dinars (KWD)</option>
+                                <option value="LBP">Lebanon Pounds (LBP)</option>
+                                <option value="MWK">Malawi Kwachas (MWK)</option>
+                                <option value="MYR">Malaysia Ringgits (MYR)</option>
+                                <option value="MUR">Mauritius Rupees (MUR)</option>
+                                <option value="MXN">Mexico Pesos (MXN)</option>
+                                <option value="MAD">Morocco Dirhams (MAD)</option>
+                                <option value="MZN">Mozambique Meticais (MZN)</option>
+                                <option value="NAD">Namibia Dollars (NAD)</option>
+                                <option value="NIO">Nicaragua Cordobas (NIO)</option>
+                                <option value="NGN">Nigeria Nairas (NGN)</option>
+                                <option value="NOK">Norway Kroner (NOK)</option>
+                                <option value="OMR">Oman Rials (OMR)</option>
+                                <option value="PEN">Peru Soles (PEN)</option>
+                                <option value="PHP">Philippines Pesos (PHP)</option>
+                                <option value="PLN">Poland Zlotych (PLN)</option>
+                                <option value="QAR">Qatar Riyals (QAR)</option>
+                                <option value="RON">Romania Lei (RON)</option>
+                                <option value="RUB">Russia Rubles (RUB)</option>
+                                <option value="WST">Samoa Tala (WST)</option>
+                                <option value="SAR">Saudi Arabia Riyals (SAR)</option>
+                                <option value="RSD">Serbia Dinars (RSD)</option>
+                                <option value="SCR">Seychelles Rupees (SCR)</option>
+                                <option value="SGD">Singapore Dollars (SGD)</option>
+                                <option value="ZAR">South Africa Rand (ZAR)</option>
+                                <option value="KRW">South Korea Won (KRW)</option>
+                                <option value="SDG">Sudan Pounds (SDG)</option>
+                                <option value="SEK">Sweden Kronor (SEK)</option>
+                                <option value="CHF">Switzerland Francs (CHF)</option>
+                                <option value="TWD">Taiwan New Dollars (TWD)</option>
+                                <option value="TSh">Tanzania Shillings (TSh)</option>
+                                <option value="TZS">Tanzania Shillings (TZS)</option>
+                                <option value="THB">Thailand Baht (THB)</option>
+                                <option value="TOP">Tonga Pa&#39;anga (TOP)</option>
+                                <option value="TTD">Trinidad and Tobago Dollars (TTD)</option>
+                                <option value="TRY">Turkey Lira (TRY)</option>
+                                <option value="UGX">Uganda Shillings (UGX)</option>
+                                <option value="UAH">Ukraine Hryvnia (UAH)</option>
+                                <option value="AED">United Arab Emirates Dirhams (AED)</option>
+                                <option value="GBP">United Kingdom Pounds (GBP)</option>
+                                <option value="UYU">Uruguay Pesos (UYU)</option>
+                                <option value="VUV">Vanuatu Vatu (VUV)</option>
+                                <option value="VEF">Venezuela Bolívares (VEF)</option>
+                                <option value="ZMW">Zambia Kwacha (ZMW)</option>
+                            </select>
+                        </th>
+                        <a href="#">Week
+                            <i class='fa fa-forward'></i>
+                            <th class='date_navigation' colspan='14'>
+                                <table>
+                                    <tr>
+                                        <th class='date_nav top_left_corner'>
+                                            <ul class='back'>
+                                                <li>
+                                                    <a class="week" id="back_1_week" data-date="23 Jun 2019"
+                                                       href="#"><i
+                                                            class='fa fa-backward'></i>
+                                                        Week
+                                                    </a></li>
+                                                <li>
+                                                    <a class="day" id="back_1_day" data-date="23 Jun 2019" href="#"><i
+                                                            class='fa fa-caret-left'></i>
+                                                        Day
+                                                    </a></li>
+                                            </ul>
 
-                                </th>
-                                <th class='date_nav date_from_nav'>
-                                    <div class='date_from'>
-                                        <label for="start_date_display">Date from</label>
-                                        <input type="text" name="start_date_display" id="start_date_display" value="23 Jun 2019" class="calendar" />
-                                        <input type="hidden" name="start_date" id="start_date" value="2019-06-23" />
-                                    </div>
-                                </th>
-                                <th class='date_nav top_right_corner'>
-                                    <ul class='forward'>
-                                        <li>
-                                            <a class="day" id="forward_1_day" data-date="24 Jun 2019" href="#">Day
-                                                    <i class='fa fa-caret-right'></i>
-                                                </a></li>
-                                        <li>
-                                            <a class="week" id="forward_1_week" data-date="30 Jun 2019">
-                                            </a>
-                                        </li>
-                                    </ul>
+                                        </th>
+                                        <th class='date_nav date_from_nav'>
+                                            <div class='date_from'>
+                                                <label for="start_date_display">Date from</label>
+                                                <input type="text" name="start_date_display" id="start_date_display"
+                                                       value="23 Jun 2019" class="calendar"/>
+                                                <input type="hidden" name="start_date" id="start_date"
+                                                       value="2019-06-23"/>
+                                            </div>
+                                        </th>
+                                        <th class='date_nav top_right_corner'>
+                                            <ul class='forward'>
+                                                <li>
+                                                    <a class="day" id="forward_1_day" data-date="24 Jun 2019" href="#">Day
+                                                        <i class='fa fa-caret-right'></i>
+                                                    </a></li>
+                                                <li>
+                                                    <a class="week" id="forward_1_week" data-date="30 Jun 2019">
+                                                    </a>
+                                                </li>
+                                            </ul>
 
-                                </th>
-                            </tr>
-                </table>
-                </th>
-                </tr>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </th>
+                    </tr>
 
-                </thead>
+                    </thead>
                 </table>
                 <!--<table cellspacing='0' class='rates' id='rates'>-->
                 <!--<thead>-->
@@ -298,12 +320,12 @@
                     <div class='vcard'>
                         <div class='fn org'>
                             <strong>Информация об отеле
-                            {% csrf_token %}
-                            {% for field in nameOfHotelInfo %}
-                            {{ field }}
-                            {% endfor %}
+                                {% csrf_token %}
+                                {% for field in nameOfHotelInfo %}
+                                {{ field }}
+                                {% endfor %}
 
-                        </strong>
+                            </strong>
                         </div>
                         <div class='phone'> Телефон
                             <span class='tel'>
@@ -315,7 +337,8 @@
 
                         </div>
                         <div class='adr'>
-                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field }} {% endfor %}
+                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field
+                                }} {% endfor %}
 
                                 <br>
 
@@ -365,15 +388,7 @@
                         <h3>{{ hotelName }}</h3>
                     </div>
                     <div class='hero'>
-                        <div class='thumbs'>
-                            Добавьте фото {% csrf_token %} {% for field in uploadPhotoInfoForm %} {{ field }} {% endfor %}
 
-                            <br>
-                        </div>
-                        <div class='description'>
-                            {% csrf_token %} {% for field in longDescriptionOfHotel %} {{ field }} {% endfor %}
-
-                        </div>
                         <div class='features'>
                             <h3>Удобства</h3>
                             <ol>
@@ -392,11 +407,11 @@
                         <div class='description_features'>
                             <div class='description'>
                                 <h3>
-                                <a class="book dynamic"
-                                   href="{% url 'main:roomView' id %}"><span
-                                        class='fa fa-chevron-circle-right'></span>
-                                    Бронь
-                                </a></h3>
+                                    <a class="book dynamic"
+                                       href="{% url 'main:roomView' id %}"><span
+                                            class='fa fa-chevron-circle-right'></span>
+                                        Бронь
+                                    </a></h3>
                             </div>
                             <div class='features'>
                                 <ol>
@@ -410,101 +425,6 @@
                     </div>
 
                     {% endfor %} {% endif %}
-                    <div class='rooms'>
-                        <!--<div class='room' id='room_107199'>-->
-                        <!--<div class='photo_overlay overlay' data-id='room_107199'>-->
-                        <!--<div class='header'>-->
-                        <!--<h3>Residencia El Balata</h3>-->
-                        <!--<h4>Habitación Economy Standard </h4>-->
-                        <!--</div>-->
-                        <!--<div class='hero'>-->
-                        <!--<div class='thumbs'>-->
-                        <!--<ul class='carousel-thumb'>-->
-                        <!--<li class='photo'>-->
-                        <!--<a data-slide-index="0" href="#"><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/thumb/20180525_161001_1_.jpg?1527303679"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                        <!--width="100" height="100"/>-->
-                        <!--</a></li>-->
-                        <!--<li class='photo'>-->
-                        <!--<a data-slide-index="1" href="#"><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/668/thumb/20180525_161035_1_.jpg?1527303748"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                        <!--width="100" height="100"/>-->
-                        <!--</a></li>-->
-                        <!--<li class='photo'>-->
-                        <!--<a data-slide-index="2" href="#"><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/669/thumb/20180525_161344_1_.jpg?1527303825"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                        <!--width="100" height="100"/>-->
-                        <!--</a></li>-->
-                        <!--<li class='photo'>-->
-                        <!--<a data-slide-index="3" href="#"><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/670/thumb/20180525_161512_1_.jpg?1527303917"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png"-->
-                        <!--width="100" height="100"/>-->
-                        <!--</a></li>-->
-                        <!--</ul>-->
-                        <!--</div>-->
-                        <!--<span class='edge'></span>-->
-                        <!--<span class='container'>-->
-                        <!--<ul class='carousel-standard'>-->
-                        <!--<a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/standard/20180525_161001_1_.jpg?1527303679"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                        <!--height="225"/></li>-->
-                        <!--</a><a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/668/standard/20180525_161035_1_.jpg?1527303748"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                        <!--height="225"/></li>-->
-                        <!--</a><a href="#"><li class='photo'><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/669/standard/20180525_161344_1_.jpg?1527303825"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                        <!--height="225"/></li>-->
-                        <!--</a><li class='photo'><img alt="Habitación Economy Standard "-->
-                        <!--data-src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/670/standard/20180525_161512_1_.jpg?1527303917"-->
-                        <!--src="/assets/placeholder-ec51415fcec5fc700429a07859b31264.png" width="400"-->
-                        <!--height="225"/></li>-->
-                        <!--</ul>-->
-                        <!--</span>-->
-                        <!--</div>-->
-                        <!--</div>-->
-
-                        <!--<div class='photo'>-->
-                        <!--<a rel=".photo_overlay[data-id=room_107199]" class="photo_small" href="#"><img-->
-                        <!--alt="Habitación Economy Standard "-->
-                        <!--src="https://photos-app-prod.littlehotelier.com/attachments/photos/images/RoomType/000/148/667/thumb/20180525_161001_1_.jpg?1527303679"/>-->
-                        <!--</a><a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Photos</a>-->
-                        <!--</div>-->
-                        <!--<div class='description_features'>-->
-                        <!--<div class='description'>-->
-                        <!--<h3>-->
-                        <!--Habitación Economy Standard-->
-                        <!--<a class="book dynamic"-->
-                        <!--href="/reservations/resielbalatadirect/107199?locale=en"><span-->
-                        <!--class='fa fa-chevron-circle-right'></span>-->
-                        <!--Book-->
-                        <!--</a></h3>-->
-                        <!--<p>Actualice por favor</p>-->
-                        <!--</div>-->
-                        <!--<div class='features'>-->
-                        <!--<ol>-->
-                        <!--<li class='feature'>1 Full Bed</li>-->
-                        <!--<li class='feature'>Shower over bath</li>-->
-                        <!--<li class='feature'>Linen and Towels Provided</li>-->
-                        <!--<li class='feature'>Ceiling Fans</li>-->
-                        <!--<li class='feature'>WIFI</li>-->
-                        <!--<li class='feature'>Shower</li>-->
-                        <!--<li class='feature'>Daily Room Service</li>-->
-                        <!--<li class='feature'>Flat Screen TV</li>-->
-                        <!--<li class='feature'>Queen Bed</li>-->
-                        <!--<li class='feature'>En-Suite</li>-->
-                        <!--</ol>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--</div>-->
-
-                    </div>
                     <div class='terms_conditions' id='terms_conditions'>
                         <h2>Условия</h2>
                         <p>
@@ -535,7 +455,7 @@
         <script src="{% static 'js/headerPhotoForm.js' %}"></script>
         <script src="{% static 'js/photoDescriptions.js' %}"></script>
     </div>
-    </form>
+</form>
 </body>
 
 </html>

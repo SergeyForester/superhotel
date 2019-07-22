@@ -8,7 +8,7 @@ from mainapp.forms import TelephoneNumberForm, AddressForm, LocalityForm, Region
 from mainapp.forms import MapLinkForm, UploadPhotoInfoForm, LongDescriptionOfHotel, FeatureForm, TermsAndConditionsForm
 from mainapp.forms import FirstStepDirections, HeaderDescription, RoomSelectionText, AdvantagesForm, \
     RoomBookingInstructions, \
-    SecondStepDirections, JoinUsForm, ThreeWordsForm, TextAfterThreeWords, PhotoDescriptions
+    SecondStepDirections, BookAHotelRoom, JoinUsForm, ThreeWordsForm, TextAfterThreeWords, PhotoDescriptions
 # Create your views here.
 
 from django.shortcuts import render, HttpResponse
@@ -58,6 +58,7 @@ def dataFromInputBooking(request):
     threeWordsForm = ThreeWordsForm(request.POST)
     textAfterThreeWords = TextAfterThreeWords(request.POST)
     photoDescriptions = PhotoDescriptions(request.POST)
+    bookAHotelRoom = BookAHotelRoom(request.POST)
 
     roomTable = Room.objects.all()
     print(roomTable)
@@ -83,7 +84,8 @@ def dataFromInputBooking(request):
                'featureForm': featureForm, 'termsAndConditions': termsAndConditions, 'roomTable': roomTable,
                'days': days, 'JoinUsForm': joinUsForm, 'AdvantagesForm': advantagesForm,
                'headerDescription': headerDescription, 'threeWordsForm': ThreeWordsForm,
-               'textAfterThreeWords': textAfterThreeWords, 'photoDescriptions':photoDescriptions}
+               'textAfterThreeWords': textAfterThreeWords, 'photoDescriptions':photoDescriptions,
+               'bookAHotelRoom':bookAHotelRoom}
 
     return render(request, 'mainapp/booking.html', context)
 

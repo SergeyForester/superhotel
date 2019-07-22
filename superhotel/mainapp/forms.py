@@ -10,7 +10,7 @@ class HeaderPhotoForm(forms.Form):
 
 class NameOfHotelForm(forms.Form):
     name_of_hotel = forms.CharField(max_length=100,
-                                    widget=forms.TextInput(attrs={'placeholder': 'El Balata, например'}))
+                                    widget=forms.TextInput(attrs={'placeholder': 'THE FALCON AT HATTON HOTEL', 'class':'nameOfHotel'}))
 
 
 class StarsForm(forms.Form):
@@ -55,19 +55,15 @@ class MapLinkForm(forms.Form):
 
 
 class UploadPhotoInfoForm(forms.Form):
-    # for x in range(6):
-    #     photo+x = forms.FileField
     photo1 = forms.FileField()
     photo2 = forms.FileField()
     photo3 = forms.FileField()
-    photo4 = forms.FileField()
-    photo5 = forms.FileField()
-    photo6 = forms.FileField()
 
 
 class LongDescriptionOfHotel(forms.Form):
     longdescr = forms.CharField(max_length=10000, widget=forms.Textarea(
-        attrs={'placeholder': 'Добавьте большое описание', 'cols': 45, 'rows': 10}))
+        attrs={'placeholder': 'Our accommodation is situated in a separate building right next to the pub, perfect for a short stay whether it’s business or pleasure. Enjoy breakfast lunch or dinner with us at your leisure.',
+               'cols': 45, 'rows': 10, 'class': 'headerDescription'}))
 
 
 class FeatureForm(forms.Form):
@@ -118,6 +114,10 @@ class PhotoDescriptions(forms.Form):
     photo2 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription2'}))
     photo3 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription3'}))
     photo4 = forms.FileField(widget=forms.ClearableFileInput(attrs={'id': 'photoDescription4'}))
+
+class BookAHotelRoom(forms.Form):
+    text = forms.CharField(max_length=100, widget=forms.TextInput(
+        attrs={'placeholder': 'BOOK A HOTEL ROOM', 'class': 'nameOfHotel'}))
 
 # forms for book_a_room.html
 
