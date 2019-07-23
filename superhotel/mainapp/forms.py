@@ -90,24 +90,24 @@ class JoinUsForm(forms.Form):
 
 
 class AdvantagesForm(forms.Form):
-    text = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
+    advantages = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
         'placeholder': 'Gastro Restaurant, Country Pub and Hotel, The Falcon offers fine food, cosy corners and a real rustic feel.',
         'class': 'advantages'}))
 
 
 class HeaderDescription(forms.Form):
-    text = forms.CharField(max_length=400, widget=forms.Textarea(attrs={
+    headerDescr = forms.CharField(max_length=400, widget=forms.Textarea(attrs={
         'placeholder': 'Enjoy our Autumn Menu – irresistibly innovative, with a choice of delightfully fresh flavours and familiar favourites. Toast our Sunday Roast, or simply savour a hand-pulled cask ale. Take a stroll straight off the car park down the public footpath and you’ll find stunning countryside. Amble past pretty St Mary’s Church, and down country lanes. Finish back at the Falcon for a well earned lunch.',
         'class': 'headerDescription', 'cols': 80, 'rows': 30}))
 
 
 class ThreeWordsForm(forms.Form):
-    text = forms.CharField(max_length=100, widget=forms.TextInput(
+    threeWords = forms.CharField(max_length=100, widget=forms.TextInput(
         attrs={'placeholder': 'DINE . DRINK . STAY', 'class': 'threeWords'}))
 
 
 class TextAfterThreeWords(forms.Form):
-    text = forms.CharField(max_length=100, widget=forms.TextInput(
+    textAfterThreeWords = forms.CharField(max_length=100, widget=forms.TextInput(
         attrs={
             'placeholder': 'View our latest menus, book one of our comfortable rooms for a short stay or feel special and indulge in our superb offers.',
             'class': 'afterThreeWords'}))

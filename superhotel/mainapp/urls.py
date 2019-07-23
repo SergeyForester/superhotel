@@ -7,4 +7,5 @@ import mainapp.views as mainapp
 urlpatterns = [
     path('booking/', mainapp.dataFromInputBooking, name='dataFromInputBooking'),
     path('book_a_room/', mainapp.dataFromInputBookARoom, name='dataFromInputBookARoom'),
+    path('checkData/', mainapp.checkDataFromInput, name='checkDataFromInput'),
 ]

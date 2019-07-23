@@ -55,6 +55,7 @@ def dataFromInputBooking(request):
     print(days[-1].strftime("%A"))
     print(days)
 
+    # если Post - заполняем данными
     if request.method == 'POST':
         headerPhoto = HeaderPhotoForm(request.POST, request.FILES)
         nameOfHotel_form = NameOfHotelForm(request.POST)
@@ -78,6 +79,7 @@ def dataFromInputBooking(request):
         photoDescriptions = PhotoDescriptions(request.POST, request.FILES)
         bookAHotelRoom = BookAHotelRoom(request.POST)
 
+        # проверяем на валидность и делаем запись в БД
         if headerPhoto.is_valid():
             DataImages.objects.create(nameOfImage = 'headerPhoto',image = headerPhoto.cleaned_data['photos'])
 
@@ -140,15 +142,15 @@ def dataFromInputBooking(request):
 
         if headerDescription.is_valid():
             Data.objects.create(nameOfText='headerDescription',
-                                valueOfText=headerDescription.cleaned_data['text'])
+                                valueOfText=headerDescription.cleaned_data['headerDescr'])
 
         if threeWordsForm.is_valid():
             Data.objects.create(nameOfText='threeWords',
-                                valueOfText=threeWordsForm.cleaned_data['text'])
+                                valueOfText=threeWordsForm.cleaned_data['threeWords'])
 
         if textAfterThreeWords.is_valid():
             Data.objects.create(nameOfText='textAfterThreeWords',
-                                valueOfText=textAfterThreeWords.cleaned_data['text'])
+                                valueOfText=textAfterThreeWords.cleaned_data['textAfterThreeWords'])
 
         if photoDescriptions.is_valid():
             DataImages.objects.create(nameOfImage='photoDescription1',image=photoDescriptions.cleaned_data['photo1'])
@@ -160,7 +162,7 @@ def dataFromInputBooking(request):
             Data.objects.create(nameOfText='threeWords',
                                 valueOfText=bookAHotelRoom.cleaned_data['text'])
 
-        return HttpResponseRedirect(reverse('main:dataFromInputBookARoom'))
+        return HttpResponseRedirect(reverse('main:checkDataFromInput'))
 
     else:
         headerPhoto = HeaderPhotoForm()
@@ -198,6 +200,20 @@ def dataFromInputBooking(request):
                'bookAHotelRoom':bookAHotelRoom}
 
     return render(request, 'mainapp/booking.html', context)
+
+
+def checkDataFromInput(request):
+
+
+    #Данные из Data
+    elementsInData = Data.objects.all()
+
+    # Данные из DataImages
+    elementsInDataImage = DataImages.objects.all()
+
+    context = {'elementsInData':elementsInData, 'elementsInDataImage':elementsInDataImage}
+
+    return render(request, 'mainapp/checkData.html', context)
 
 
 # из cleaned_data достаем данные и помещаем в файлы
