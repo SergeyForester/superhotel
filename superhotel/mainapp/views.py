@@ -55,6 +55,7 @@ def dataFromInputBooking(request):
     print(days[-1].strftime("%A"))
     print(days)
 
+    # если Post - заполняем данными
     if request.method == 'POST':
         headerPhoto = HeaderPhotoForm(request.POST, request.FILES)
         nameOfHotel_form = NameOfHotelForm(request.POST)
@@ -78,6 +79,7 @@ def dataFromInputBooking(request):
         photoDescriptions = PhotoDescriptions(request.POST, request.FILES)
         bookAHotelRoom = BookAHotelRoom(request.POST)
 
+        # проверяем на валидность и делаем запись в БД
         if headerPhoto.is_valid():
             DataImages.objects.create(nameOfImage = 'headerPhoto',image = headerPhoto.cleaned_data['photos'])
 
@@ -136,19 +138,19 @@ def dataFromInputBooking(request):
 
         if advantagesForm.is_valid():
             Data.objects.create(nameOfText='advantages',
-                                valueOfText=advantagesForm.cleaned_data['text'])
+                                valueOfText=advantagesForm.cleaned_data['advantages'])
 
         if headerDescription.is_valid():
             Data.objects.create(nameOfText='headerDescription',
-                                valueOfText=headerDescription.cleaned_data['text'])
+                                valueOfText=headerDescription.cleaned_data['headerDescr'])
 
         if threeWordsForm.is_valid():
             Data.objects.create(nameOfText='threeWords',
-                                valueOfText=threeWordsForm.cleaned_data['text'])
+                                valueOfText=threeWordsForm.cleaned_data['threeWords'])
 
         if textAfterThreeWords.is_valid():
             Data.objects.create(nameOfText='textAfterThreeWords',
-                                valueOfText=textAfterThreeWords.cleaned_data['text'])
+                                valueOfText=textAfterThreeWords.cleaned_data['textAfterThreeWords'])
 
         if photoDescriptions.is_valid():
             DataImages.objects.create(nameOfImage='photoDescription1',image=photoDescriptions.cleaned_data['photo1'])
@@ -157,10 +159,10 @@ def dataFromInputBooking(request):
             DataImages.objects.create(nameOfImage='photoDescription4',image=photoDescriptions.cleaned_data['photo4'])
 
         if bookAHotelRoom.is_valid():
-            Data.objects.create(nameOfText='threeWords',
+            Data.objects.create(nameOfText='bookAHotel',
                                 valueOfText=bookAHotelRoom.cleaned_data['text'])
 
-        return HttpResponseRedirect(reverse('main:dataFromInputBookARoom'))
+        return HttpResponseRedirect(reverse('main:checkDataFromInput'))
 
     else:
         headerPhoto = HeaderPhotoForm()
@@ -198,6 +200,83 @@ def dataFromInputBooking(request):
                'bookAHotelRoom':bookAHotelRoom}
 
     return render(request, 'mainapp/booking.html', context)
+
+
+def checkDataFromInput(request):
+
+
+    #Данные из Data
+    elementsInData = Data.objects.all()
+
+    # Данные из DataImages
+    elementsInDataImage = DataImages.objects.all()
+
+    context = {'elementsInData':elementsInData, 'elementsInDataImage':elementsInDataImage}
+
+    return render(request, 'mainapp/checkData.html', context)
+
+
+def previewPage(request):
+    bannerPhoto = DataImages.objects.filter(nameOfImage = 'headerPhoto').reverse()[0]
+    joinUs = Data.objects.filter(nameOfText = 'joinUs').reverse()[0]
+    advantages = Data.objects.filter(nameOfText = 'advantages').reverse()[0]
+    headerDescription = Data.objects.filter(nameOfText = 'headerDescription').reverse()[0]
+    threeWords = Data.objects.filter(nameOfText = 'threeWords').reverse()[0]
+    textAfterThreeWords = Data.objects.filter(nameOfText = 'textAfterThreeWords').reverse()[0]
+    nameOfHotel = Data.objects.filter(nameOfText = 'nameOfHotel').reverse()[0]
+    longDescriptionOfHotel = Data.objects.filter(nameOfText = 'longDescription').reverse()[0]
+
+    photoDescr1 = DataImages.objects.filter(nameOfImage = 'photoDescription1').reverse()[0]
+    photoDescr2 = DataImages.objects.filter(nameOfImage = 'photoDescription2').reverse()[0]
+    photoDescr3 = DataImages.objects.filter(nameOfImage = 'photoDescription3').reverse()[0]
+    photoDescr4 = DataImages.objects.filter(nameOfImage = 'photoDescription4').reverse()[0]
+
+    bookingPhoto1 = DataImages.objects.filter(nameOfImage = 'infoPhoto1').reverse()[0]
+    bookingPhoto2 = DataImages.objects.filter(nameOfImage = 'infoPhoto2').reverse()[0]
+    bookingPhoto3 = DataImages.objects.filter(nameOfImage = 'infoPhoto3').reverse()[0]
+
+    bookAHotelRoom = Data.objects.filter(nameOfText = 'bookAHotel').reverse()[0]
+
+    stars = Data.objects.filter(nameOfText = 'stars').reverse()[0]
+
+    nameOfHotelInfo = Data.objects.filter(nameOfText = 'nameOfHotelInfo').reverse()[0]
+    telephoneNumber = Data.objects.filter(nameOfText = 'telephoneNumber').reverse()[0]
+    address = Data.objects.filter(nameOfText = 'address').reverse()[0]
+    postalCode = Data.objects.filter(nameOfText = 'postalCode').reverse()[0]
+    mapCode = Data.objects.filter(nameOfText = 'mapCode').reverse()[0]
+
+    feature1 = Data.objects.filter(nameOfText = 'feature1').reverse()[0]
+    feature2 = Data.objects.filter(nameOfText = 'feature2').reverse()[0]
+    feature3 = Data.objects.filter(nameOfText = 'feature3').reverse()[0]
+    feature4 = Data.objects.filter(nameOfText = 'feature4').reverse()[0]
+    feature5 = Data.objects.filter(nameOfText = 'feature5').reverse()[0]
+    feature6 = Data.objects.filter(nameOfText = 'feature6').reverse()[0]
+    feature7 = Data.objects.filter(nameOfText = 'feature7').reverse()[0]
+    feature8 = Data.objects.filter(nameOfText = 'feature8').reverse()[0]
+
+    termsAndConditions = Data.objects.filter(nameOfText = 'termsAndConditions').reverse()[0]
+
+    context = {'bannerPhoto':bannerPhoto, 'joinUs':joinUs,
+               'advantages':advantages, 'headerDescription':headerDescription,
+               'threeWords':threeWords, 'textAfterThreeWords':textAfterThreeWords,
+               'nameOfHotel':nameOfHotel, 'longDescriptionOfHotel':longDescriptionOfHotel,
+               'photoDescr1':photoDescr1, 'photoDescr2':photoDescr2,
+               'photoDescr3':photoDescr3, 'photoDescr4':photoDescr4,
+               'bookingPhoto1':bookingPhoto1, 'bookingPhoto2':bookingPhoto2,
+               'bookingPhoto3': bookingPhoto3, 'bookAHotelRoom':bookAHotelRoom,
+               'stars':stars, 'nameOfHotelInfo':nameOfHotelInfo,
+               'telephoneNumber':telephoneNumber, 'address':address,
+               'postalCode':postalCode, 'mapCode':mapCode,
+               'feature1':feature1, 'feature2':feature2,
+               'feature3': feature3, 'feature4':feature4,
+               'feature5': feature5,'feature6': feature6,
+               'feature7':feature7,'feature8': feature8,
+               'termsAndConditions':termsAndConditions}
+
+    return render(request, 'mainapp/readyPage.html', context)
+
+
+
 
 
 # из cleaned_data достаем данные и помещаем в файлы

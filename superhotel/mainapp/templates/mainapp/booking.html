@@ -153,7 +153,7 @@
                                 <option value="AUD">Australia Dollars (AUD)</option>
                             </select>
                         </th>
-                        <a href="#">Week
+                        Week
                             <i class='fa fa-forward'></i>
                             <th class='date_navigation' colspan='14'>
                                 <table>
@@ -211,22 +211,24 @@
             </div>
 
             <div class="contact">
-                
+
             </div>
             <div class='property'>
                 <h2>Информация об отеле</h2>
                 <div class='location'>
                     <div class='vcard'>
                         <div class='fn org'>
-                            <strong>Информация об отеле
+                            <strong>
+                                Информация об отеле
+                            </strong>
                                 {% csrf_token %}
                                 {% for field in nameOfHotelInfo %}
                                 {{ field }}
                                 {% endfor %}
 
-                            </strong>
                         </div>
-                        <div class='phone'> Телефон
+                        <div class='phone'>
+                            <strong>Телефон</strong>
                             <span class='tel'>
                              {% csrf_token %}
                             {% for field in telephoneNumberForm %}
@@ -236,27 +238,20 @@
 
                         </div>
                         <div class='adr'>
-                            <div class='street-address'> Адрес {% csrf_token %} {% for field in addressForm %} {{ field }} {% endfor %}
+                            <div class='street-address'>
+                                <strong>Адрес</strong><br>
+                                {% csrf_token %}
+                                {% for field in addressForm %}
+                                {{ field }}
+                                {% endfor %}
 
                                 <br>
 
                             </div>
                             <div>
-                                <span class='locality'> местонахождение
-                                     {% csrf_token %}
-                                    {% for field in localityForm %}
-                                        {{ field }}
-                                    {% endfor %}
-                                    </span>
-                                <br>
-                                <span class='region'> регион
-                                 {% csrf_token %}
-                                    {% for field in regionForm %}
-                                        {{ field }}
-                                    {% endfor %}
-                                    </span>
-                                <br>
-                                <span class='postal-code'> Почтовый код
+
+                                <span class='postal-code'>
+                                    <strong>Почтовый код</strong>
                                  {% csrf_token %}
                                  {% for field in postal_codeForm %}
                                         {{ field }}

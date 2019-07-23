@@ -1,0 +1,1185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <title>Hotel</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta content='Virginia y Pedro son una pareja Italo-Dominicana, juntos con sus hijos pequeños viven y dirigen este hotel con encanto. El Balata, refleja claramente la unión de estas dos familias de diferentes culturas y estilos, pero en completa armonía creando un pequeño hotel sin precedentes en el Caribe.&#x000A;&#x000A;'
+          name='description'>
+
+    <link rel="stylesheet" media="screen" href="{% static 'css/public-f6ccfa2f22ed0069d927e67be1fddc44.css' %}"/>
+    <link rel="stylesheet" media="screen" href="{% static 'css/public.css' %} "/>
+    <link rel="stylesheet" media="screen" href="{% static 'public-print-f785708b5849f5f94a6a787a67fe4952.css' %} "/>
+
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="UENh4MFnwXRSowg3jlH25Ki65IrHb2BuuiyHi3NGjjQTRGFHD32EZ1Bq6FI8RuIL8nknlkbbi8LHb2PVY1HzWQ=="/>
+</head>
+
+<body>
+<form class="form-horizontal" enctype="multipart/form-data" action="{% url 'main:dataFromInputBooking' %}"  method="post">
+    <div id='main'>
+        <div id='banner'>
+            {{ bannerPhoto.image }}
+            <div class="blackHeader"></div>
+            <div id="headerPhoto"></div>
+        </div>
+
+        <div class="descriptions">
+            {{ joinUs.valueOfText }}
+            <br>
+            {{ advantages.valueOfText }}
+            <br>
+            {{ headerDescription.valueOfText }}
+            <br>
+            {{ threeWords.valueOfText }}
+            <br>
+            {{ textAfterThreeWords.valueOfText }}
+            <br>
+            <div class="descrPhotoContainer">
+                <div id="descrPhoto1" style="float:left; margin-right:30px;">{{ photoDescr1 }}</div>
+                <div id="descrPhoto2" style="float:left; margin-right:30px;">{{ photoDescr2 }}</div>
+                <div id="descrPhoto3" style="float:left; margin-right:30px;">{{ photoDescr3 }}</div>
+                <div id="descrPhoto4" style="float:left; margin-right:30px;">{{ photoDescr4 }}</div>
+            </div>
+            {{ nameOfHotel.valueOfText }}
+            <br>
+            {{ longDescriptionOfHotel.valueOfText }}
+
+            <br>
+            <div class="bookingPhotoContainer">
+                <div id="bookingPhoto1" style="float:left; margin-right:10px;">{{ bookingPhoto1 }}</div>
+                <div id="bookingPhoto2" style="float:left; margin-right:10px;">{{ bookingPhoto2 }}</div>
+                <div id="bookingPhoto3" style="float:left; margin-right:10px;">{{ bookingPhoto3 }}</div>
+            </div>
+
+            <br>
+
+           {{ bookAHotelRoom }}
+
+        </div>
+
+        <div id='content'>
+            <div class='overview'>
+                <div class='header'>
+                    <!-- <h1><input type="text" placeholder="Отель Победа"></h1> -->
+                    <div style="float:left">
+                        <h1>
+                        </h1>
+                    </div>
+                    <div style="float:right">
+
+                        {% if stars.valueOfText == 1 %}
+                        <dl class="large rating stars_10_large">
+                            <dt>Rating</dt>
+                            <dd>3.0 stars</dd>
+                        </dl>
+                        {% elif stars.valueOfText == 2 %}
+                        <dl class="large rating stars_20_large">
+                            <dt>Rating</dt>
+                            <dd>3.0 stars</dd>
+                        </dl>
+                        {% elif stars.valueOfText == 3 %}
+                        <dl class="large rating stars_30_large">
+                            <dt>Rating</dt>
+                            <dd>3.0 stars</dd>
+                        </dl>
+                        {% elif stars.valueOfText == 4 %}
+                        <dl class="large rating stars_40_large">
+                            <dt>Rating</dt>
+                            <dd>3.0 stars</dd>
+                        </dl>
+                        {% elif stars.valueOfText == 5 %}
+                        <dl class="large rating stars_50_large">
+                            <dt>Rating</dt>
+                            <dd>3.0 stars</dd>
+                        </dl>
+                        {% endif %}
+
+                    </div>
+                    <div class='top-right'>
+                    </div>
+
+                    <div class='website'>
+                        <!--TODO-->
+                    </div>
+
+                </div>
+            </div>
+            <div class='availability'>
+                <table cellspacing='0' class='no-margin rates-header'>
+                    <thead class='controls'>
+                    <thead class='controls'>
+                    <input name="utf8" type="hidden" value="&#x2713;"/>
+                    <input type="hidden" name="locale" id="locale" value="en"/>
+                    <tr>
+                        <th colspan='3'></th>
+                        <th class='promotion' colspan='14'>
+                            <button name="button" type="submit" class="apply"><span class='fa fa-check-circle'></span>
+                                Apply
+                            </button>
+                            <input type="text" name="promotion_code" id="promotion_code" value=""/>
+                            <label for='promotion_code'>Enter a promotional code</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        Week
+                            <i class='fa fa-forward'></i>
+                            <th class='date_navigation' colspan='14'>
+                                <table>
+                                    <tr>
+                                        <th class='date_nav top_left_corner'>
+                                            <ul class='back'>
+                                                <li>
+                                                    <a class="week" id="back_1_week" data-date="23 Jun 2019"
+                                                       href="#"><i
+                                                            class='fa fa-backward'></i>
+                                                        Week
+                                                    </a></li>
+                                                <li>
+                                                    <a class="day" id="back_1_day" data-date="23 Jun 2019" href="#"><i
+                                                            class='fa fa-caret-left'></i>
+                                                        Day
+                                                    </a></li>
+                                            </ul>
+
+                                        </th>
+                                        <th class='date_nav date_from_nav'>
+                                            <div class='date_from'>
+                                                <label for="start_date_display">Date from</label>
+                                                <input type="text" name="start_date_display" id="start_date_display"
+                                                       value="23 Jun 2019" class="calendar"/>
+                                                <input type="hidden" name="start_date" id="start_date"
+                                                       value="2019-06-23"/>
+                                            </div>
+                                        </th>
+                                        <th class='date_nav top_right_corner'>
+                                            <ul class='forward'>
+                                                <li>
+                                                    <a class="day" id="forward_1_day" data-date="24 Jun 2019" href="#">Day
+                                                        <i class='fa fa-caret-right'></i>
+                                                    </a></li>
+                                                <li>
+                                                    <a class="week" id="forward_1_week" data-date="30 Jun 2019">
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </th>
+                                    </tr>
+                                </table>
+                            </th>
+                    </tr>
+
+                    </thead>
+                </table>
+
+                </thead>
+                </table>
+
+                <table cellspacing='0' class='rates' id='rates'>
+                    <thead>
+                    <tr>
+                        <th class='note' colspan='2'>Prices will be charged in United States Dollars</th>
+                        <th class='rack_rate'></th>
+                        <th class='date'>
+                            <span class='day_name'>Tue</span>
+                            <span class='day'>09</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Wed</span>
+                            <span class='day'>10</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Thu</span>
+                            <span class='day'>11</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Fri</span>
+                            <span class='day'>12</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date start weekend'>
+                            <span class='day_name'>Sat</span>
+                            <span class='day'>13</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date end weekend'>
+                            <span class='day_name'>Sun</span>
+                            <span class='day'>14</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Mon</span>
+                            <span class='day'>15</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Tue</span>
+                            <span class='day'>16</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Wed</span>
+                            <span class='day'>17</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Thu</span>
+                            <span class='day'>18</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Fri</span>
+                            <span class='day'>19</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date start weekend'>
+                            <span class='day_name'>Sat</span>
+                            <span class='day'>20</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date end weekend'>
+                            <span class='day_name'>Sun</span>
+                            <span class='day'>21</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+                        <th class='date'>
+                            <span class='day_name'>Mon</span>
+                            <span class='day'>22</span>
+                            <span class='month'>Jul</span>
+                            <span class='year'>2019</span>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Habitación Economy Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107199">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124780447'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124780448'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124780449'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124780450'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate start weekend' data-id='124780451'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124780452'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780453'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780454'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780455'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780456'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780457'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124780458'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124780459'>
+                            <a href="" #>30</a>
+                        </td>
+                        <td class='rate' data-id='124780460'>
+                            <a href="" #>30</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>One Bedroom Apartment Standard</p>
+                            <a rel=".photo_overlay[data-id=room_107215]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107215">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124792143'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792144'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792145'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792146'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124792147'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124792148'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792149'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792150'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792151'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792152'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124792153'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124792154'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='end rate weekend' data-id='124792155'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124792156'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Apartamento con terraza Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107218]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107218">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href=""><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124794336'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794337'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794338'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794339'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124794340'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124794341'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794342'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794343'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794344'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794345'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794346'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124794347'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124794348'>
+                            <a href="">100</a>
+                        </td>
+                        <td class='rate' data-id='124794349'>
+                            <a href="">100</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Two Bedroom Apartment 4 pax Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107216]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107216">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124792874'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792875'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792876'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792877'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate start weekend' data-id='124792878'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='end rate weekend' data-id='124792879'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792880'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792881'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792882'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792883'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792884'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124792885'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124792886'>
+                            <a href="" #>75</a>
+                        </td>
+                        <td class='rate' data-id='124792887'>
+                            <a href="" #>75</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Two Bedroom Apartment 6 pax Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107217]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107217">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124793605'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124793606'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793607'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124793608'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate start weekend' data-id='124793609'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='end rate weekend' data-id='124793610'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124793611'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793612'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793613'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793614'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793615'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124793616'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124793617'>
+                            <a href="" #>85</a>
+                        </td>
+                        <td class='rate' data-id='124793618'>
+                            <a href="" #>85</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Habitación Family Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107206]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107206">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124785564'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785565'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124785566'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124785567'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124785568'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124785569'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785570'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785571'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785572'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785573'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785574'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate start weekend' data-id='124785575'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='end rate weekend' data-id='124785576'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124785577'>
+                            <a href="" #>35</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Habitación Standard Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107209]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107209">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124787757'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787758'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787759'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787760'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124787761'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124787762'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787763'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787764'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787765'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787766'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787767'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124787768'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124787769'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124787770'>
+                            <a href="" #>35</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Habitación Panoramic Standard</p>
+                            <a rel=".photo_overlay[data-id=room_107201]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107201">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124781909'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124781910'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124781911'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124781912'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124781913'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124781914'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124781915'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124781916'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124781917'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124781918'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124781919'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124781920'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124781921'>
+                            <a href="" #>35</a>
+                        </td>
+                        <td class='rate' data-id='124781922'>
+                            <a href="" #>35</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Loft Romántica Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107210]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107210">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124788488'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788489'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788490'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788491'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124788492'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124788493'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788494'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788495'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788496'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788497'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788498'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124788499'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124788500'>
+                            <a href="" #>45</a>
+                        </td>
+                        <td class='rate' data-id='124788501'>
+                            <a href="" #>45</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Loft Quádruple Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107211]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107211">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124789219'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789220'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789221'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789222'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124789223'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124789224'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789225'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789226'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789227'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789228'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789229'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124789230'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124789231'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789232'>
+                            <a href="" #>55</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Deluxe Rústica Standard</p>
+                            <a rel=".photo_overlay[data-id=room_107212]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107212">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124789950'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789951'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789952'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789953'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124789954'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124789955'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789956'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789957'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789958'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789959'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789960'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124789961'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124789962'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124789963'>
+                            <a href="" #>55</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Deluxe Caribe Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107213]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107213">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124790681'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790682'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790683'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790684'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124790685'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124790686'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790687'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790688'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='rate' data-id='124790689'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790690'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790691'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124790692'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124790693'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124790694'>
+                            <a href="" #>55</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='room_name'>
+                            <p>Deluxe Jardín Standard </p>
+                            <a rel=".photo_overlay[data-id=room_107214]" class="photos" href="#">Photos</a>
+                            <a class="details" href="#room_107214">Details</a>
+                        </td>
+                        <td class='book_now'>
+                            <a class="book dynamic en" href="" #><span class='fa fa-chevron-circle-right'></span>
+                                Book
+                            </a></td>
+                        <td class='rack_rate'>$</td>
+                        <td class='rate' data-id='124791412'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791413'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791414'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791415'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124791416'>
+                            <span class='unavailable'>Sold</span>
+                        </td>
+                        <td class='end rate weekend' data-id='124791417'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791418'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791419'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791420'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791421'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791422'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate start weekend' data-id='124791423'>
+                            <a href="">55</a>
+                        </td>
+                        <td class='end rate weekend' data-id='124791424'>
+                            <a href="" #>55</a>
+                        </td>
+                        <td class='rate' data-id='124791425'>
+                            <a href="" #>55</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th class='bottom_left_corner bottom_right_corner' colspan='17'>
+                            <em>Move the mouse over the price for inclusions, occupancy and minimum stay</em>
+                        </th>
+                    </tr>
+                    </tfoot>
+                </table>
+
+                <!--<table>-->
+                <!--<tr>-->
+                <!--<th class='date_nav top_left_corner'>-->
+                <!--<ul class='back'>-->
+                <!--<li>-->
+                <!--<a class="week" id="back_1_week" data-date="23 Jun 2019"-->
+                <!--href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i-->
+                <!--class='fa fa-backward'></i>-->
+                <!--Week-->
+                <!--</a></li>-->
+                <!--<li>-->
+                <!--<a class="day" id="back_1_day" data-date="23 Jun 2019"-->
+                <!--href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-23"><i-->
+                <!--class='fa fa-caret-left'></i>-->
+                <!--Day-->
+                <!--</a></li>-->
+                <!--</ul>-->
+
+                <!--</th>-->
+                <!--<th class='date_nav date_from_nav'>-->
+                <!--<div class='date_from'>-->
+                <!--<label for="start_date_display">Date from</label>-->
+                <!--<input type="text" name="start_date_display" id="start_date_display"-->
+                <!--value="23 Jun 2019" class="calendar"/>-->
+                <!--<input type="hidden" name="start_date" id="start_date" value="2019-06-23"/>-->
+                <!--</div>-->
+                <!--</th>-->
+                <!--<th class='date_nav top_right_corner'>-->
+                <!--<ul class='forward'>-->
+                <!--<li>-->
+                <!--<a class="day" id="forward_1_day" data-date="24 Jun 2019"-->
+                <!--href="/properties/resielbalatadirect?currency=USD&amp;locale=en&amp;start_date=2019-06-24">Day-->
+                <!--<i class='fa fa-caret-right'></i>-->
+                <!--</a></li>-->
+                <!--<li>-->
+                <!--<a class="week" id="forward_1_week" data-date="30 Jun 2019">-->
+                <!--</a></li>-->
+                <!--</ul>-->
+
+                <!--</th>-->
+                <!--</tr>-->
+                <!--</table>-->
+                <!--</th>-->
+                <!--</tr>-->
+
+                <!--</thead>-->
+                <!--</table>-->
+                <!--<table cellspacing='0' class='rates' id='rates'>-->
+                <!--<thead>-->
+                <!--<tr>-->
+                <!--<th class='note' colspan='2'>Prices will be charged in United States Dollars</th>-->
+                <!--<th class='rack_rate'></th>-->
+                <!--{% for day in days %}-->
+                <!--<th class='date end weekend'>-->
+                <!--&lt;!&ndash;<span class='day_name'>{{day.day}}</span>&ndash;&gt;-->
+                <!--<span class='day'>{{day.day}}</span>-->
+                <!--<span class='month'>{{day.month}}</span>-->
+                <!--<span class='year'>{{day.year}}</span>-->
+                <!--</th>-->
+                <!--{% endfor %}-->
+
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--</table>-->
+                <!--</thead>-->
+                <!--</table>-->
+                <!--<table cellspacing='0' class='rates' id='rates'>-->
+                <!--<tbody>-->
+                <!--{% for room in roomTable %}-->
+                <!--<tr>-->
+                <!--&lt;!&ndash; Здесь я думаю использовать formset &ndash;&gt;-->
+                <!--&lt;!&ndash; TODO здесь возникли сложности  &ndash;&gt;-->
+                <!--<td class='room_name'>-->
+                <!--<p>{{room.name}}</p>-->
+                <!--<a rel=".photo_overlay[data-id=room_107199]" class="photos" href="#">Фото</a>-->
+                <!--<a class="details" href="#room_107199">Детали</a>-->
+                <!--</td>-->
+                <!--<td class='book_now'>-->
+                <!--<a class="book dynamic en"-->
+                <!--href="#"><span-->
+                <!--class='fa fa-chevron-circle-right'></span>-->
+                <!--Бронь-->
+                <!--</a></td>-->
+                <!--<td class='rack_rate'>$</td>-->
+
+                <!--<td class='rate start weekend' data-id='124780430'>-->
+                <!--<a href="#">{{room.price}}</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--{% endfor %}-->
+                <!--</tbody>-->
+                <!--<tfoot>-->
+                <!--<tr>-->
+                <!--<th class='bottom_left_corner bottom_right_corner' colspan='17'>-->
+                <!--<em>Наведите указатель мыши на цену для включения, размещения и минимального пребывания</em>-->
+                <!--</th>-->
+                <!--</tr>-->
+                <!--</tfoot>-->
+                <!--</table>-->
+            </div>
+
+            <div class="contact">
+                Контакты
+            </div>
+            <div class='property'>
+                <h2>Информация об отеле</h2>
+                <div class='location'>
+                    <div class='vcard'>
+                        <div class='fn org'>
+                            <strong>
+                                Информация об отеле
+                            </strong>
+                                {{ nameOfHotelInfo.valueOfText }}
+
+                        </div>
+                        <div class='phone'>
+                            <strong>Телефон</strong>
+                            <span class='tel'>
+                            {{ telephoneNumber.valueOfText }}
+                            </span>
+
+                        </div>
+                        <div class='adr'>
+                            <div class='street-address'>
+                                <strong>Адрес</strong><br>
+                                {{ address.valueOfText }}
+                            </div>
+                            <div>
+
+                                <span class='postal-code'>
+                                    <strong>Почтовый код</strong>
+                                 {{ postalCode.valueOfText }}
+                                </span>
+                                <br>
+                            </div>
+                        </div>
+                        <div class='website'>
+                            <!--TODO-->
+
+                        </div>
+
+                    </div>
+                    <div class='actions'>
+                        {{ mapCode.valueOfText }}
+                        <!--TODO-->
+                    </div>
+                </div>
+                <div class='main'>
+
+                    <!--<div class='photo_overlay overlay' id='property_overlay'>-->
+
+                    <div class='hero'>
+                        <div class='features'>
+                            <h3>Удобства</h3>
+                            <ol>
+                                <li class='feature'>
+                                    {{ feature1.valueOfText }} <br>
+                                    {{ feature2.valueOfText }} <br>
+                                    {{ feature3.valueOfText }} <br>
+                                    {{ feature4.valueOfText }} <br>
+                                    {{ feature5.valueOfText }} <br>
+                                    {{ feature6.valueOfText }} <br>
+                                    {{ feature7.valueOfText }} <br>
+                                    {{ feature8.valueOfText }} <br>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class='terms_conditions' id='terms_conditions'>
+                        <h2>Условия</h2>
+                        <p>
+                            {{ termsAndConditions.valueOfText }}
+                            <br>
+                        </p>
+                    </div>
+                    <!--</div>-->
+                </div>
+
+            </div>
+            <div id='footer'></div>
+        </div>
+        <div id='loading'></div>
+        <!--<script src="/assets/public-2543e3bbf9498af7a04eb305280afed3.js"></script>-->
+
+        <div class='tip' id='room_type_date_tooltip'>
+            <div class='special_header'>Hot Deal!</div>
+            <table>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class='tip' id='extra_tooltip'></div>
+        <div class='tip' id='room_tooltip'></div>
+        <script src="{% static 'js/headerPhotoForm.js' %}"></script>
+        <script src="{% static 'js/photoDescriptions.js' %}"></script>
+        <script src="{% static 'js/bookingPhotos.js' %}"></script>
+    </div>
+</form>
+</body>
+
+</html>
